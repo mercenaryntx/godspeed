@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Neurotoxin.Godspeed.Shell.Views.FileDetailsBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:constants="clr-namespace:Neurotoxin.Godspeed.Shell.Constants"
+             xmlns:controls="clr-namespace:Neurotoxin.Godspeed.Presentation.Controls;assembly=Neurotoxin.Godspeed.Presentation"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             xmlns:co="clr-namespace:Neurotoxin.Godspeed.Shell.Converters" lex:LocalizeDictionary.DesignCulture="en-US"
+             lex:ResxLocalizationProvider.DefaultAssembly="Neurotoxin.Godspeed.Shell"
+             lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+             MinHeight="120">
+    <Grid x:Name="LayoutRoot">
+        <Grid Visibility="{Binding Converter={StaticResource NotNullOrEmptyConverter}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.ColumnSpan="2" Text="{Binding Path}" TextWrapping="Wrap" Margin="0,0,0,5"/>
+
+            <Image Grid.Column="0" Grid.Row="1" Width="96" Height="96" Source="{co:ThumbnailConverter ThumbnailSize=32}" Stretch="None" 
+                   SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="{Binding Converter={StaticResource BitmapScalingModeConverter}}"/>
+
+            <Grid Grid.Column="1" Grid.Row="1" Margin="10,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="{lex:LocText Type, Suffix={x:Static constants:Strings.ColonSpace}}"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ContentType, Converter={StaticResource ContentTypeConverter}}"/>
+                <TextBlock Grid.Row="1" Text="{lex:LocText Size, Suffix={x:Static constants:Strings.ColonSpace}}"/>
+                <TextBlock Grid.Row="1" Grid.Column="1">
+                    <TextBlock.Text>
+                        <co:SizeConverter Suffix="{lex:Loc Bytes}"/>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock Grid.Row="2" Text="{lex:LocText Date, Suffix={x:Static constants:Strings.ColonSpace}}"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=Date, StringFormat={lex:LocText Neurotoxin.Godspeed.Shell:Resources:DateTimeFormat}}"/>
+            </Grid>
+        </Grid>
+        <controls:ProgressIndicator Visibility="{Binding Converter={StaticResource NotNullOrEmptyConverter}, ConverterParameter=True}"/>
+    </Grid>
+</UserControl>

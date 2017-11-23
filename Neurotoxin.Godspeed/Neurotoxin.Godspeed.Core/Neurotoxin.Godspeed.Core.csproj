@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6BC68F07-4B7E-4143-9795-973CAC9EAAB4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Neurotoxin.Godspeed.Core</RootNamespace>
+    <AssemblyName>Neurotoxin.Godspeed.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.1.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Esent.Collections">
+      <HintPath>..\packages\ManagedEsent.1.6\lib\net20\Esent.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.0.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Text.4.0.22\lib\net40\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\DeclaredOnlyAttribute.cs" />
+    <Compile Include="Attributes\StringValueAttribute.cs" />
+    <Compile Include="Caching\EsentPersistentDictionary.cs" />
+    <Compile Include="Constants\AchievementLockFlags.cs" />
+    <Compile Include="Constants\AssetSubcategory.cs" />
+    <Compile Include="Constants\BlockStatus.cs" />
+    <Compile Include="Constants\Button.cs" />
+    <Compile Include="Constants\ConsoleType.cs" />
+    <Compile Include="Constants\ConsoleTypeFlags.cs" />
+    <Compile Include="Constants\ContentType.cs" />
+    <Compile Include="Constants\IsoType.cs" />
+    <Compile Include="Constants\MediaTypecs.cs" />
+    <Compile Include="Constants\ReservedFlags.cs" />
+    <Compile Include="Constants\Country.cs" />
+    <Compile Include="Constants\EndianType.cs" />
+    <Compile Include="Constants\EntryType.cs" />
+    <Compile Include="Constants\FileEntryFlags.cs" />
+    <Compile Include="Constants\Sex.cs" />
+    <Compile Include="Constants\InstallerType.cs" />
+    <Compile Include="Constants\LicenseType.cs" />
+    <Compile Include="Constants\Magic.cs" />
+    <Compile Include="Constants\Offsets.cs" />
+    <Compile Include="Constants\OnlineContentResumeState.cs" />
+    <Compile Include="Constants\SettingId.cs" />
+    <Compile Include="Constants\SkeletonVersion.cs" />
+    <Compile Include="Constants\StringReadOptions.cs" />
+    <Compile Include="Constants\SubscriptionTeir.cs" />
+    <Compile Include="Constants\TitleEntryFlags.cs" />
+    <Compile Include="Constants\TransferFlags.cs" />
+    <Compile Include="Constants\UsbDeviceChange.cs" />
+    <Compile Include="Constants\VolumeDescriptorType.cs" />
+    <Compile Include="Constants\XbeAllowedMedia.cs" />
+    <Compile Include="Constants\XbeGameRegion.cs" />
+    <Compile Include="Constants\XbeSectionFlags.cs" />
+    <Compile Include="Constants\XboxLiveServiceProvider.cs" />
+    <Compile Include="Constants\XprFormat.cs" />
+    <Compile Include="Diagnostics\Ticker.cs" />
+    <Compile Include="Exceptions\ModelFactoryException.cs" />
+    <Compile Include="Exceptions\TelnetException.cs" />
+    <Compile Include="Extensions\ByteArrayExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\EnumHelper.cs" />
+    <Compile Include="Extensions\ExtensionHelper.cs" />
+    <Compile Include="Extensions\MemberInfoExtensions.cs" />
+    <Compile Include="Extensions\MethodInfoExtensions.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Extensions\LongExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\ToBigEndian.cs" />
+    <Compile Include="Extensions\ToByteArray.cs" />
+    <Compile Include="Extensions\VersionExtensions.cs" />
+    <Compile Include="Helpers\BinMapHelper.cs" />
+    <Compile Include="Helpers\ResourceHelper.cs" />
+    <Compile Include="FastActivator.cs" />
+    <Compile Include="Io\DirectoryInfo.cs" />
+    <Compile Include="Io\DirectoryStructure.cs" />
+    <Compile Include="Io\God\DataFile.cs" />
+    <Compile Include="Io\God\HashEntry.cs" />
+    <Compile Include="Io\God\HashTable.cs" />
+    <Compile Include="Io\Gpd\Entries\AchievementComparer.cs" />
+    <Compile Include="Io\Gpd\Entries\AchievementEntry.cs" />
+    <Compile Include="Io\Gpd\Entries\AvatarAwardEntry.cs" />
+    <Compile Include="Io\Gpd\Entries\TitleComparer.cs" />
+    <Compile Include="Io\Gpd\Entries\EntryList.cs" />
+    <Compile Include="Io\Gpd\Entries\SettingList.cs" />
+    <Compile Include="Io\Gpd\Entries\TitleEntry.cs" />
+    <Compile Include="Io\Iso\IsoTypeDescriptor.cs" />
+    <Compile Include="Io\Iso\VolumeDescriptor.cs" />
+    <Compile Include="Io\Iso\Xiso.cs" />
+    <Compile Include="Io\Iso\XisoDetails.cs" />
+    <Compile Include="Io\Iso\XisoTableData.cs" />
+    <Compile Include="Constants\XisoFlags.cs" />
+    <Compile Include="Io\Iso\XisoFileEntry.cs" />
+    <Compile Include="Io\PathInfo.cs" />
+    <Compile Include="Io\ReparsePoint.cs" />
+    <Compile Include="Io\Stfs\Events\ContentCountEventArgs.cs" />
+    <Compile Include="Io\Stfs\Events\ContentParsedEventArgs.cs" />
+    <Compile Include="Io\Stfs\Events\DurationEventArgs.cs" />
+    <Compile Include="Io\UsbNotification.cs" />
+    <Compile Include="Io\Xbe\XbeCertificate.cs" />
+    <Compile Include="Io\Xbe\XbeFile.cs" />
+    <Compile Include="Constants\XbeInitFlags.cs" />
+    <Compile Include="Io\Xbe\XbePe.cs" />
+    <Compile Include="Io\Xbe\XbeSection.cs" />
+    <Compile Include="Io\Xpr\XprPackage.cs" />
+    <Compile Include="Logging\DebugLogger.cs" />
+    <Compile Include="Security\XCompress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Io\Xex\XexCompressedBaseFile.cs" />
+    <Compile Include="Constants\XexCompressionType.cs" />
+    <Compile Include="Constants\XexEncryptionType.cs" />
+    <Compile Include="Io\Xex\XexRawBaseFileBlock.cs" />
+    <Compile Include="Io\Xex\XexCompressionInfo.cs" />
+    <Compile Include="Io\Xex\XexExecutionId.cs" />
+    <Compile Include="Io\Xex\XexFile.cs" />
+    <Compile Include="Io\Xex\XexFileHeader.cs" />
+    <Compile Include="Constants\XexFlags.cs" />
+    <Compile Include="Io\Xex\XexHeaderAttribute.cs" />
+    <Compile Include="Io\Xex\XexLibrary.cs" />
+    <Compile Include="Io\Xex\XexOptionalHeader.cs" />
+    <Compile Include="Constants\XexOptionalHeaderId.cs" />
+    <Compile Include="Constants\XexOptionalHeaderType.cs" />
+    <Compile Include="Io\Xex\XexResourceInfo.cs" />
+    <Compile Include="Io\Xtaf\Xtaf.cs" />
+    <Compile Include="Models\BinMap.cs" />
+    <Compile Include="Io\Stfs\Data\AvatarItemMediaInfo.cs" />
+    <Compile Include="Io\Stfs\Data\CachedUserFlags.cs" />
+    <Compile Include="Io\Stfs\Data\IInstallerInformation.cs" />
+    <Compile Include="Io\Stfs\Data\ProgressCache.cs" />
+    <Compile Include="Io\Stfs\Data\Update.cs" />
+    <Compile Include="Io\Stfs\Data\VideoMediaInfo.cs" />
+    <Compile Include="Io\Stfs\Data\IMediaInfo.cs" />
+    <Compile Include="Io\Stfs\Data\SvodVolumeDescriptor.cs" />
+    <Compile Include="Io\Stfs\Data\IVolumeDescriptor.cs" />
+    <Compile Include="Models\BinMapEntry.cs" />
+    <Compile Include="Io\Stfs\ProfileEmbeddedContent.cs" />
+    <Compile Include="Io\Stfs\StfsPackage.cs" />
+    <Compile Include="Io\Stfs\SvodPackage.cs" />
+    <Compile Include="Models\BinaryContainer.cs" />
+    <Compile Include="Models\BinaryContent.cs" />
+    <Compile Include="Models\BinaryLocation.cs" />
+    <Compile Include="Models\BinaryModelBase.cs" />
+    <Compile Include="Io\Stfs\Account.cs" />
+    <Compile Include="Attributes\BinaryDataAttribute.cs" />
+    <Compile Include="Io\Gpd\Entries\EntryBase.cs" />
+    <Compile Include="Io\Gpd\DashboardFile.cs" />
+    <Compile Include="Io\Gpd\GameFile.cs" />
+    <Compile Include="Io\Gpd\Entries\ImageEntry.cs" />
+    <Compile Include="Io\Gpd\Entries\SettingEntry.cs" />
+    <Compile Include="Constants\SettingEntryType.cs" />
+    <Compile Include="Io\Gpd\Entries\StringEntry.cs" />
+    <Compile Include="Io\Gpd\Entries\SyncData.cs" />
+    <Compile Include="Io\Gpd\Entries\SyncEntry.cs" />
+    <Compile Include="Io\Gpd\Entries\SyncList.cs" />
+    <Compile Include="Io\Gpd\XdbfEntry.cs" />
+    <Compile Include="Io\Gpd\GpdFile.cs" />
+    <Compile Include="Io\Gpd\XdbfFreeSpaceEntry.cs" />
+    <Compile Include="Io\Stfs\Data\Certificate.cs" />
+    <Compile Include="Io\Stfs\Data\PackageSignature.cs" />
+    <Compile Include="Models\INamed.cs" />
+    <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\ModelInterceptor.cs" />
+    <Compile Include="Models\IBinaryModel.cs" />
+    <Compile Include="Io\Stfs\Data\IPackageSignature.cs" />
+    <Compile Include="Io\Stfs\Data\FileEntry.cs" />
+    <Compile Include="Io\Stfs\Data\HashEntry.cs" />
+    <Compile Include="Io\Stfs\HashTable.cs" />
+    <Compile Include="Io\Stfs\Data\LicenseEntry.cs" />
+    <Compile Include="Io\Stfs\Package.cs" />
+    <Compile Include="Io\Stfs\Data\StfsVolumeDescriptor.cs" />
+    <Compile Include="Models\OffsetTable.cs" />
+    <Compile Include="Models\Tree.cs" />
+    <Compile Include="Net\Cryptography\GetChecksum.cs" />
+    <Compile Include="Net\Cryptography\MD5.cs" />
+    <Compile Include="Net\Cryptography\XCRC.cs" />
+    <Compile Include="Net\Cryptography\XMD5.cs" />
+    <Compile Include="Net\Cryptography\XSHA1.cs" />
+    <Compile Include="Net\Cryptography\XSHA256.cs" />
+    <Compile Include="Net\Cryptography\XSHA512.cs" />
+    <Compile Include="Net\FtpClient.cs" />
+    <Compile Include="Net\FtpControlConnection.cs" />
+    <Compile Include="Net\FtpDataStream.cs" />
+    <Compile Include="Net\FtpEnums.cs" />
+    <Compile Include="Net\FtpExceptions.cs" />
+    <Compile Include="Net\FtpExtensionAttribute.cs" />
+    <Compile Include="Net\FtpExtensions.cs" />
+    <Compile Include="Net\FtpGetListingEventArgs.cs" />
+    <Compile Include="Net\FtpHash.cs" />
+    <Compile Include="Net\FtpListItem.cs" />
+    <Compile Include="Net\FtpReply.cs" />
+    <Compile Include="Net\FtpSocketStream.cs" />
+    <Compile Include="Net\FtpTrace.cs" />
+    <Compile Include="Net\IFtpClient.cs" />
+    <Compile Include="Net\IFtpListItem.cs" />
+    <Compile Include="Net\IFtpReply.cs" />
+    <Compile Include="Net\Telnet.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Crc32.cs" />
+    <Compile Include="Security\RC4.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Resources\gdf_sector.bin" />
+    <Resource Include="Resources\ConHeader.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\KV_D.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\KV_dec.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\KV_enc.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\KV_R.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\HddDirectoryStructure.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,60 @@
+﻿<cp:StatusBarBase x:Class="Neurotoxin.Godspeed.Presentation.Controls.StatusBar"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:co="clr-namespace:Neurotoxin.Godspeed.Presentation.Converters"
+                   xmlns:cp="clr-namespace:Neurotoxin.Godspeed.Presentation.Primitives">
+    <Border BorderThickness="0,1,0,0" BorderBrush="#FFe1e6ff" Height="23" Grid.Row="4" Margin="0,3,0,0">
+        <Border.Resources>
+            <co:NotNullOrEmptyConverter x:Key="NotNullVisibility"/>
+            <co:NowPrefixConverter x:Key="NowPrefixConverter"/>
+            <co:BoolToVisibilityConverter x:Key="BoolToVis"/>
+            <Style TargetType="TextBlock" x:Key="StatusBarTextBlock">
+                <Setter Property="TextWrapping" Value="NoWrap" />
+                <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+                <Setter Property="Padding" Value="2,0" />
+            </Style>
+            <Style TargetType="Separator" BasedOn="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}">
+                <Setter Property="Margin" Value="2,0" />
+                <Setter Property="Background" Value="White"/>
+            </Style>
+        </Border.Resources>
+        <Border BorderThickness="1" BorderBrush="White" Padding="2" Background="#FFd8dfff">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="100" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition MinWidth="200" MaxWidth="400" />
+                </Grid.ColumnDefinitions>
+
+                <DockPanel LastChildFill="True" Grid.Column="0">
+                    <ProgressBar x:Name="LoadingProgress" Maximum="{Binding LoadingQueueLength}" Value="{Binding LoadingProgress}" Grid.Column="0" 
+                                 Orientation="Horizontal" Width="100" DockPanel.Dock="Left" Margin="0,0,5,0" IsIndeterminate="False"
+                                 Visibility="{Binding Path=IsInProgress, Converter={StaticResource BoolToVis}}"/>
+                    <TextBlock x:Name="LoadingInfo" Text="{Binding LoadingInfo}" Style="{StaticResource StatusBarTextBlock}" />
+                </DockPanel>
+                
+                <Separator Grid.Column="1"/>
+
+                <TextBlock Grid.Column="2" Text="{Binding StatusBarText}" Style="{StaticResource StatusBarTextBlock}"/>
+                
+                <Separator Grid.Column="3" />
+
+                <DockPanel LastChildFill="True" Grid.Column="4" Visibility="{Binding Path=LastErrorIsException, Converter={StaticResource BoolToVis}}">
+                    <Image DockPanel.Dock="Left" Margin="2,0" Source="/Mti.Mnp.Client.Wpf.Resources;component/Icons/exception.png" Width="16" />
+                    <TextBlock Style="{StaticResource StatusBarTextBlock}" Text="{Binding Path=LastError.Message, Converter={StaticResource NowPrefixConverter}}" 
+                               ToolTipService.ToolTip="{Binding Path=LastError}" />
+                </DockPanel>
+
+                <DockPanel LastChildFill="True" Grid.Column="2" Visibility="{Binding Path=LastErrorIsWarning, Converter={StaticResource BoolToVis}}">
+                    <Image DockPanel.Dock="Left" Margin="2,0" Source="/Mti.Mnp.Client.Wpf.Resources;component/Icons/error.png" Width="16" />
+                    <TextBlock Style="{StaticResource StatusBarTextBlock}" Text="{Binding Path=LastError.Message, Converter={StaticResource NowPrefixConverter}}" 
+                               ToolTipService.ToolTip="{Binding Path=LastError}" />
+                </DockPanel>
+
+                <Button Grid.Column="4" Opacity="0" MouseDoubleClick="OnErrorStatusDoubleClick"/>
+            </Grid>
+        </Border>
+    </Border>
+</cp:StatusBarBase>

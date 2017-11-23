@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Drive>
+  <Directory Name="Cache"/>
+  <Directory Name="Content">
+    <Directory Name="0000000000000000" DisplayName="Games" Description="Marketplace Games and Demos">
+      <Directory Name="[1-9A-F][0-9A-F]{7}" Description="Game or Application">
+        <Directory Value="DownloadableContent" Type="Neurotoxin.Godspeed.Core.Constants.ContentType"/>
+        <Directory Value="XboxOriginalGame" Type="Neurotoxin.Godspeed.Core.Constants.ContentType"/>
+        <Directory Value="GameOnDemand" Type="Neurotoxin.Godspeed.Core.Constants.ContentType"/>
+        <Directory Value="AvatarItem" Type="Neurotoxin.Godspeed.Core.Constants.ContentType"/>
+        <Directory Value="GamerPicture" Type="Neurotoxin.Godspeed.Core.Constants.ContentType"/>
+        <Directory Value="Theme" Type="Neurotoxin.Godspeed.Core.Constants.ContentType"/>
+        <Directory Value="XboxLiveArcadeGame" Type="Neurotoxin.Godspeed.Core.Constants.ContentType"/>
+        <Directory Value="TitleUpdate" Type="Neurotoxin.Godspeed.Core.Constants.ContentType"/>
+      </Directory>
+    </Directory>
+    <Directory Name="E0000[0-9A-F]{11}" Description="Profile directory">
+      <Directory Name="F[0-9A-F]{7}" Description="Profile data">
+        <Directory Value="Profile" Type="Neurotoxin.Godspeed.Core.Constants.ContentType"/>
+      </Directory>
+      <Directory Name="[1-9A-E][0-9A-F]{7}" Description="Game saves">
+        <Directory Value="SavedGame" Type="Neurotoxin.Godspeed.Core.Constants.ContentType"/>
+      </Directory>
+    </Directory>
+  </Directory>
+</Drive>

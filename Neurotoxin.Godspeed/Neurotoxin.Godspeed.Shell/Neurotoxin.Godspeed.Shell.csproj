@@ -1,0 +1,941 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B80F4FF9-D93B-474B-A86E-6B6EB70E92F7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Neurotoxin.Godspeed.Shell</RootNamespace>
+    <AssemblyName>Neurotoxin.Godspeed.Shell</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fizzler">
+      <HintPath>..\packages\Fizzler.0.9.3\lib\net35\Fizzler.dll</HintPath>
+    </Reference>
+    <Reference Include="Fizzler.Systems.HtmlAgilityPack">
+      <HintPath>..\packages\Fizzler.0.9.3\lib\net35\Fizzler.Systems.HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net40-client\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite">
+      <HintPath>..\packages\Prism\Microsoft.Practices.Composite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite.Presentation">
+      <HintPath>..\packages\Prism\Microsoft.Practices.Composite.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite.UnityExtensions">
+      <HintPath>..\packages\Prism\Microsoft.Practices.Composite.UnityExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Prism\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Shell">
+      <HintPath>..\packages\Microsoft.Windows.Shell\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="NAppUpdate.Framework, Version=0.3.2.0, Culture=neutral, PublicKeyToken=d1f1d1f19f9e5a56, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAppUpdate.Framework.0.3.2.0\lib\net20\NAppUpdate.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\packages\SharpMik\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="ServiceStack.Common, Version=4.0.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.4.0.22\lib\net40\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.4.0.22\lib\net40\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite, Version=4.0.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.4.0.22\lib\net40\ServiceStack.OrmLite.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.Sqlite.Windows">
+      <HintPath>..\packages\ServiceStack.OrmLite.Sqlite.Windows.4.0.22\lib\net40\ServiceStack.OrmLite.Sqlite.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.0.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.0.22\lib\net40\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpCompress, Version=0.10.3.0, Culture=neutral, PublicKeyToken=beaf6f427e128133, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\sharpcompress.0.10.3\lib\net40\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpMikNAudio">
+      <HintPath>..\packages\SharpMik\SharpMikNAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.92.0\lib\net40\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Windows.Interactivity\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFLocalizeExtension">
+      <HintPath>..\packages\WpfLocalizeExtension.2.2.0\lib\net35\WPFLocalizeExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="XAMLMarkupExtensions">
+      <HintPath>..\packages\XAMLMarkupExtensions.1.1.6.3\lib\net40\XAMLMarkupExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.2.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Commands\FileListCommands.cs" />
+    <Compile Include="Constants\ColumnMode.cs" />
+    <Compile Include="Constants\Comparers\ItemTypeComparer.cs" />
+    <Compile Include="Constants\FileListPaneViewMode.cs" />
+    <Compile Include="Constants\IsoRebuildType.cs" />
+    <Compile Include="Constants\SizeConverterParameter.cs" />
+    <Compile Include="Constants\DeleteConfirmationResult.cs" />
+    <Compile Include="Constants\ItemState.cs" />
+    <Compile Include="Constants\ConnectionImage.cs" />
+    <Compile Include="Constants\ConnectionType.cs" />
+    <Compile Include="Constants\CopyAction.cs" />
+    <Compile Include="Constants\CopyActionScope.cs" />
+    <Compile Include="Constants\DisableOption.cs" />
+    <Compile Include="Constants\ErrorResolutionBehavior.cs" />
+    <Compile Include="Constants\FsdContentItemProperty.cs" />
+    <Compile Include="Constants\FsdContentScanTrigger.cs" />
+    <Compile Include="Constants\FtpServerType.cs" />
+    <Compile Include="Constants\FtpTransferDirection.cs" />
+    <Compile Include="Constants\InputDialogMode.cs" />
+    <Compile Include="Constants\ItemType.cs" />
+    <Compile Include="Constants\LaunchErrorCode.cs" />
+    <Compile Include="Constants\MessageFlags.cs" />
+    <Compile Include="Constants\Modules.cs" />
+    <Compile Include="Constants\ModuleLoadInfoCollection.cs" />
+    <Compile Include="Constants\NameConverterParameter.cs" />
+    <Compile Include="Constants\OpenStfsPackageMode.cs" />
+    <Compile Include="Constants\RecognitionState.cs" />
+    <Compile Include="Constants\RemoteCopyMode.cs" />
+    <Compile Include="Constants\ResumeCapability.cs" />
+    <Compile Include="Constants\Shutdown.cs" />
+    <Compile Include="Constants\Strings.cs" />
+    <Compile Include="Constants\TitleType.cs" />
+    <Compile Include="Constants\ToggleSelectionMode.cs" />
+    <Compile Include="Constants\TransferErrorType.cs" />
+    <Compile Include="Constants\TransferResult.cs" />
+    <Compile Include="Constants\FileOperation.cs" />
+    <Compile Include="Constants\TreeTraversalDirection.cs" />
+    <Compile Include="ContentProviders\CacheManager.cs" />
+    <Compile Include="ContentProviders\IsoContent.cs" />
+    <Compile Include="Controllers\NotificationService.cs" />
+    <Compile Include="Converters\BitmapScalingModeConverter.cs" />
+    <Compile Include="Converters\ThumbnailConverter.cs" />
+    <Compile Include="Converters\TitleConverter.cs" />
+    <Compile Include="Converters\NameConverter.cs" />
+    <Compile Include="Converters\ExpanderConverter.cs" />
+    <Compile Include="Converters\SizeConverter.cs" />
+    <Compile Include="Database\Attributes\OrderByAttribute.cs" />
+    <Compile Include="Database\Models\FavoriteFolder.cs" />
+    <Compile Include="Database\OrmLiteDbConnection.cs" />
+    <Compile Include="Database\OrmLiteLogFactory.cs" />
+    <Compile Include="Database\OrmLiteLogger.cs" />
+    <Compile Include="Database\SqliteOrmLiteDialectProviderEx.cs" />
+    <Compile Include="Events\CanExecuteFileOperationEvent.cs" />
+    <Compile Include="Events\AsyncJobStartedEvent.cs" />
+    <Compile Include="Events\AsyncJobFinishedEvent.cs" />
+    <Compile Include="Events\FileListPaneViewModelContentSortedEvent.cs" />
+    <Compile Include="Events\RefreshPanesEvent.cs" />
+    <Compile Include="Events\ExecuteFileOperationEvent.cs" />
+    <Compile Include="Events\AsyncProcessFinishedEvent.cs" />
+    <Compile Include="Exceptions\FsdMissingContentItemCellException.cs" />
+    <Compile Include="Exceptions\LockedItemException.cs" />
+    <Compile Include="Extensions\ProgressViewModelExtensions.cs" />
+    <Compile Include="Helpers\NauXmlFeedReaderEx.cs" />
+    <Compile Include="Interfaces\IDbContext.cs" />
+    <Compile Include="ContentProviders\CompressedFileContent.cs" />
+    <Compile Include="ContentProviders\FileSystemContentBase.cs" />
+    <Compile Include="ContentProviders\FtpContent.cs" />
+    <Compile Include="ContentProviders\LocalFileSystemContent.cs" />
+    <Compile Include="ContentProviders\UserSettingsProvider.cs" />
+    <Compile Include="ContentProviders\StfsPackageContent.cs" />
+    <Compile Include="ContentProviders\TitleRecognizer.cs" />
+    <Compile Include="Controllers\ResourceManager.cs" />
+    <Compile Include="Converters\ContentTypeConverter.cs" />
+    <Compile Include="Converters\LocalizedEnumConverter.cs" />
+    <Compile Include="Converters\ResxConverter.cs" />
+    <Compile Include="Converters\FileBlockHealthStatusConverter.cs" />
+    <Compile Include="Converters\ExpirationConverter.cs" />
+    <Compile Include="Converters\PaneHeaderBackgroundConverter.cs" />
+    <Compile Include="Converters\TransferTypeConverter.cs" />
+    <Compile Include="Database\OrmLiteDbContext.cs" />
+    <Compile Include="Events\ActivePaneChangedEvent.cs" />
+    <Compile Include="Events\CloseNestedPaneEvent.cs" />
+    <Compile Include="Constants\MessageCommand.cs" />
+    <Compile Include="Constants\MessageIcon.cs" />
+    <Compile Include="Events\CachePopulatedEvent.cs" />
+    <Compile Include="Events\ConnectionDetailsChangedEvent.cs" />
+    <Compile Include="Events\CloseFtpTraceWindowEvent.cs" />
+    <Compile Include="Events\ShowFtpTraceWindowEvent.cs" />
+    <Compile Include="Events\FileListPaneViewModelItemsChangedEvent.cs" />
+    <Compile Include="Events\LogChangedEventHandler.cs" />
+    <Compile Include="Events\RaiseCanExecuteChangesEvent.cs" />
+    <Compile Include="Events\ShowCorrespondingErrorEvent.cs" />
+    <Compile Include="Events\FreestyleDatabaseCheckedEvent.cs" />
+    <Compile Include="Events\AsyncProcessStartedEvent.cs" />
+    <Compile Include="Events\ShellInitializedEvent.cs" />
+    <Compile Include="Events\NotifyUserMessageEvent.cs" />
+    <Compile Include="Events\UsbDeviceChangedEvent.cs" />
+    <Compile Include="Events\OpenNestedPaneEvent.cs" />
+    <Compile Include="Events\FtpOperationFinishedEvent.cs" />
+    <Compile Include="Events\TransferProgressChangedEvent.cs" />
+    <Compile Include="Events\FtpOperationStartedEvent.cs" />
+    <Compile Include="Events\TransferFinishedEvent.cs" />
+    <Compile Include="Events\TransferStartedEvent.cs" />
+    <Compile Include="Events\ViewModelGeneratedEvent.cs" />
+    <Compile Include="Exceptions\SomethingWentWrongException.cs" />
+    <Compile Include="Exceptions\TransferException.cs" />
+    <Compile Include="Extensions\DbConnectionExtensions.cs" />
+    <Compile Include="Extensions\ResourcesExtension.cs" />
+    <Compile Include="Helpers\FtpTraceListener.cs" />
+    <Compile Include="Database\QueryBuilder.cs" />
+    <Compile Include="Interfaces\IDialog.cs" />
+    <Compile Include="Interfaces\IDialogViewModelBase.cs" />
+    <Compile Include="Interfaces\ILoginViewModel.cs" />
+    <Compile Include="Models\F3PluginGetProfileInfo.cs" />
+    <Compile Include="Models\FsdContentItemCells.cs" />
+    <Compile Include="ViewModels\GodConversionSettingsViewModel.cs" />
+    <Compile Include="Models\OpenIsoPayload.cs" />
+    <Compile Include="Models\TransferInitializationResult.cs" />
+    <Compile Include="Models\UnityItem.cs" />
+    <Compile Include="Models\UnityResponse.cs" />
+    <Compile Include="ViewModels\AddRemoveCurrentDirViewModel.cs" />
+    <Compile Include="ViewModels\IsoContentViewModel.cs" />
+    <Compile Include="ViewModels\DialogViewModelBase.cs" />
+    <Compile Include="ViewModels\FavoriteFolderViewModel.cs" />
+    <Compile Include="ViewModels\IMenuItemViewModel.cs" />
+    <Compile Include="ViewModels\ITransferManagerViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\RecognizeFromProfileViewModel.cs" />
+    <Compile Include="ViewModels\SanityCheckerViewModel.cs" />
+    <Compile Include="Helpers\Web.cs" />
+    <Compile Include="Interfaces\ICacheManager.cs" />
+    <Compile Include="Interfaces\IFileListPaneViewModel.cs" />
+    <Compile Include="Interfaces\IFileManager.cs" />
+    <Compile Include="Interfaces\IFileManagerViewModel.cs" />
+    <Compile Include="Interfaces\IProgressViewModel.cs" />
+    <Compile Include="Interfaces\IResourceManager.cs" />
+    <Compile Include="Interfaces\IStatisticsViewModel.cs" />
+    <Compile Include="Interfaces\ITitleRecognizer.cs" />
+    <Compile Include="Interfaces\ITreeSelectionViewModel.cs" />
+    <Compile Include="Interfaces\IUserMessageViewModel.cs" />
+    <Compile Include="Interfaces\IUserSettingsProvider.cs" />
+    <Compile Include="Interfaces\IWindowManager.cs" />
+    <Compile Include="Database\Attributes\IgnoreOnReadAttribute.cs" />
+    <Compile Include="Models\CacheComplexKey.cs" />
+    <Compile Include="Database\Models\CacheItem.cs" />
+    <Compile Include="Models\CopyResult.cs" />
+    <Compile Include="Models\FileExistenceInfo.cs" />
+    <Compile Include="Models\FileListPaneSettings.cs" />
+    <Compile Include="Models\FsdScanPath.cs" />
+    <Compile Include="Database\Models\IgnoredMessage.cs" />
+    <Compile Include="Models\LoadDataAsyncParameters.cs" />
+    <Compile Include="Models\LoginDialogResult.cs" />
+    <Compile Include="Database\Models\ModelBase.cs" />
+    <Compile Include="Models\ProfileItemWrapper.cs" />
+    <Compile Include="Database\Models\Statistics.cs" />
+    <Compile Include="Models\SanityCheckResult.cs" />
+    <Compile Include="Models\UserMessageCommandParameter.cs" />
+    <Compile Include="Database\Models\UserSettings.cs" />
+    <Compile Include="Primitives\BorderlessWindow.cs" />
+    <Compile Include="Primitives\CaptionButtons.xaml.cs">
+      <DependentUpon>CaptionButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Primitives\DialogBase.cs" />
+    <Compile Include="Properties\Resources.hu-HU.Designer.cs">
+      <DependentUpon>Resources.hu-HU.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\RawPostData.cs" />
+    <Compile Include="Reporting\HttpForm.cs" />
+    <Compile Include="Reporting\ErrorReport.cs" />
+    <Compile Include="Reporting\FormDataBase.cs" />
+    <Compile Include="Interfaces\IFormData.cs" />
+    <Compile Include="Reporting\WindowScreenshotReport.cs" />
+    <Compile Include="ViewModels\CommonViewModelBase.cs" />
+    <Compile Include="ViewModels\CompressedFileContentViewModel.cs" />
+    <Compile Include="Constants\FileBlockHealthStatus.cs" />
+    <Compile Include="Interfaces\ISettingsViewModel.cs" />
+    <Compile Include="ViewModels\FtpTraceViewModel.cs" />
+    <Compile Include="ViewModels\ShutdownDialogViewModel.cs" />
+    <Compile Include="ViewModels\TransferManagerViewModel.cs" />
+    <Compile Include="ViewModels\FreestyleDatabaseCheckerViewModel.cs" />
+    <Compile Include="ViewModels\GpdFileEntryViewModel.cs" />
+    <Compile Include="ViewModels\GpdFileViewModel.cs" />
+    <Compile Include="ViewModels\InputDialogViewModel.cs" />
+    <Compile Include="ViewModels\NoMessagesViewModel.cs" />
+    <Compile Include="ViewModels\FileBlockViewModel.cs" />
+    <Compile Include="ViewModels\FileEntryViewModel.cs" />
+    <Compile Include="ViewModels\ProfileRebuilderTabItemViewModel.cs" />
+    <Compile Include="ViewModels\StatisticsViewModel.cs" />
+    <Compile Include="ViewModels\UserMessageViewModel.cs" />
+    <Compile Include="ViewModels\ProfileRebuilderViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\InputDialogOptionViewModel.cs" />
+    <Compile Include="Interfaces\IPaneViewModel.cs" />
+    <Compile Include="Interfaces\IStoredConnection.cs" />
+    <Compile Include="Interfaces\IStoredConnectionViewModel.cs" />
+    <Compile Include="Interfaces\ITransferErrorDialog.cs" />
+    <Compile Include="Models\CacheEntry.cs" />
+    <Compile Include="Models\FileSystemItem.cs" />
+    <Compile Include="Database\Models\FtpConnection.cs" />
+    <Compile Include="Models\QueueItem.cs" />
+    <Compile Include="Models\RecognitionInformation.cs" />
+    <Compile Include="Models\TransferErrorDialogResult.cs" />
+    <Compile Include="ViewModels\ConnectionsViewModel.cs" />
+    <Compile Include="ViewModels\FileListPaneViewModelBase.cs" />
+    <Compile Include="ViewModels\FileManagerViewModel.cs" />
+    <Compile Include="ViewModels\FileSystemItemViewModel.cs" />
+    <Compile Include="ViewModels\FtpConnectionItemViewModel.cs" />
+    <Compile Include="ViewModels\FtpContentViewModel.cs" />
+    <Compile Include="ViewModels\LocalFileSystemContentViewModel.cs" />
+    <Compile Include="ViewModels\NewConnectionPlaceholderViewModel.cs" />
+    <Compile Include="ViewModels\PaneViewModelBase.cs" />
+    <Compile Include="ViewModels\StfsPackageContentViewModel.cs" />
+    <Compile Include="Commands\FileManagerCommands.cs" />
+    <Compile Include="ViewModels\WriteErrorDialogViewModel.cs" />
+    <Compile Include="Views\Behaviors\TextBoxAutoScrollToBottomBehavior.cs" />
+    <Compile Include="Views\Behaviors\MenuItemButtonGroupBehavior.cs" />
+    <Compile Include="Views\ConnectionsPane.xaml.cs">
+      <DependentUpon>ConnectionsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\FileListPaneContentView.xaml.cs">
+      <DependentUpon>FileListPaneContentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\PaneHeader.xaml.cs">
+      <DependentUpon>PaneHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ProgressNotificationBar.xaml.cs">
+      <DependentUpon>ProgressNotificationBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\GodConversionSettingsDialog.xaml.cs">
+      <DependentUpon>GodConversionSettingsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\DeleteConfirmationDialog.xaml.cs">
+      <DependentUpon>DeleteConfirmationDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\ShutdownDialog.xaml.cs">
+      <DependentUpon>ShutdownDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\TreeSelectionDialog.xaml.cs">
+      <DependentUpon>TreeSelectionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\FileListPaneListView.xaml.cs">
+      <DependentUpon>FileListPaneListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\AutoUpdateDialog.xaml.cs">
+      <DependentUpon>AutoUpdateDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formatters\HtmlFormatter.cs" />
+    <Compile Include="Views\FtpTraceWindow.xaml.cs">
+      <DependentUpon>FtpTraceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FreestyleDatabaseCheckerWindow.xaml.cs">
+      <DependentUpon>FreestyleDatabaseCheckerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\LoginDialog.xaml.cs">
+      <DependentUpon>LoginDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\UserStatisticsParticipationDialog.xaml.cs">
+      <DependentUpon>UserStatisticsParticipationDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\ProgressDialog.xaml.cs">
+      <DependentUpon>ProgressDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Selectors\ProfileRebuilderContentTemplateSelector.cs" />
+    <Compile Include="Views\StatisticsWindow.xaml.cs">
+      <DependentUpon>StatisticsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\ErrorMessage.xaml.cs">
+      <DependentUpon>ErrorMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfileRebuilderPane.xaml.cs">
+      <DependentUpon>ProfileRebuilderPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\AboutDialog.xaml.cs">
+      <DependentUpon>AboutDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\RemoteCopyErrorDialog.xaml.cs">
+      <DependentUpon>RemoteCopyErrorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\ConfirmationDialog.xaml.cs">
+      <DependentUpon>ConfirmationDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\NotificationMessage.xaml.cs">
+      <DependentUpon>NotificationMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\InputDialog.xaml.cs">
+      <DependentUpon>InputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\NewConnectionDialog.xaml.cs">
+      <DependentUpon>NewConnectionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\IoErrorDialog.xaml.cs">
+      <DependentUpon>IoErrorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\ReconnectionDialog.xaml.cs">
+      <DependentUpon>ReconnectionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\TransferProgressDialog.xaml.cs">
+      <DependentUpon>TransferProgressDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\WriteErrorDialog.xaml.cs">
+      <DependentUpon>WriteErrorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileDetailsBox.xaml.cs">
+      <DependentUpon>FileDetailsBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileListPane.xaml.cs">
+      <DependentUpon>FileListPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileManagerWindow.xaml.cs">
+      <DependentUpon>FileManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Selectors\CloseButtonsTemplateSelector.cs" />
+    <Compile Include="Views\Selectors\CellTemplateSelector.cs" />
+    <Compile Include="Views\Selectors\MessageStyleSelector.cs" />
+    <Compile Include="Views\Selectors\MessageTemplateSelector.cs" />
+    <Compile Include="Views\Selectors\PaneTemplateSelector.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Validations\IsNonExistentConnection.cs" />
+    <Compile Include="Controllers\WindowManager.cs" />
+    <Page Include="Primitives\CaptionButtons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\BureauBlack.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\BureauBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\FloatingScrollBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ShinyBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyRed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\WhistlerBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ConnectionsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\FileListPaneContentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\PaneHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\ProgressNotificationBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\GodConversionSettingsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\DeleteConfirmationDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\ShutdownDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\TreeSelectionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\FileListPaneContextMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\FileListPaneListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\AutoUpdateDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FtpTraceWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FreestyleDatabaseCheckerWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\LoginDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\UserStatisticsParticipationDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\ProgressDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StatisticsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\ErrorMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ProfileRebuilderPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\AboutDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\RemoteCopyErrorDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\ConfirmationDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\NotificationMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\InputDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\NewConnectionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\IoErrorDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\ReconnectionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\TransferProgressDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\WriteErrorDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FileDetailsBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FileListPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FileManagerWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.hu-HU.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.hu-HU.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Neurotoxin.Godspeed.Core\Neurotoxin.Godspeed.Core.csproj">
+      <Project>{6BC68F07-4B7E-4143-9795-973CAC9EAAB4}</Project>
+      <Name>Neurotoxin.Godspeed.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Neurotoxin.Godspeed.Presentation\Neurotoxin.Godspeed.Presentation.csproj">
+      <Project>{A8BF8EBE-6CE5-48DD-B88F-37DCC4F18106}</Project>
+      <Name>Neurotoxin.Godspeed.Presentation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\clipboard_sign.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\cog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Connections\AddConnection.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Connections\Fat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Connections\FatElite.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Connections\HardDrive.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Connections\Slim.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Connections\Pendrive.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Items\16x16\drive.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Items\16x16\drive_cd.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Items\16x16\drive_cd_empty.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Items\16x16\drive_error.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Items\16x16\drive_network.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Items\16x16\file.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Items\16x16\folder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\hidden_achivement.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\refresh.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\rename.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\search.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Items\16x16\up.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Items\16x16\xbox_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Items\16x16\package.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Connections\SlimE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Connections\PlayStation3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Items\16x16\refresh_folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\info.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\savethumbnail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Items\16x16\drive_flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pause.png" />
+    <Resource Include="Resources\play.png" />
+    <Resource Include="Resources\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\fileaccesserror.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Items\16x16\reparse_point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\control_play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Sounds\credits.xm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <None Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Items\16x16\xex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Sounds\notification.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Items\16x16\games_folder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pane_view_large_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\pane_view_small_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\fsd_database_check.png" />
+    <Resource Include="Resources\fsd_webui.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\shutdown_xbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\recognize_from_profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\stats.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Items\32x32\xbox_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Items\32x32\drive.png" />
+    <Resource Include="Resources\Items\32x32\drive_cd.png" />
+    <Resource Include="Resources\Items\32x32\drive_cd_empty.png" />
+    <Resource Include="Resources\Items\32x32\drive_error.png" />
+    <Resource Include="Resources\Items\32x32\drive_flash.png" />
+    <Resource Include="Resources\Items\32x32\drive_network.png" />
+    <Resource Include="Resources\Items\32x32\file.png" />
+    <Resource Include="Resources\Items\32x32\folder.png" />
+    <Resource Include="Resources\Items\32x32\games_folder.png" />
+    <Resource Include="Resources\Items\32x32\package.png" />
+    <Resource Include="Resources\Items\32x32\refresh_folder.png" />
+    <Resource Include="Resources\Items\32x32\reparse_point.png" />
+    <Resource Include="Resources\Items\32x32\up.png" />
+    <Resource Include="Resources\Items\32x32\xex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\codeplex.png" />
+    <Resource Include="Resources\facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\sum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\favorites.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Items\16x16\iso.png" />
+    <Resource Include="Resources\Items\32x32\iso.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,41 @@
+﻿<primitives:DialogBase x:Class="Neurotoxin.Godspeed.Shell.Views.Dialogs.ErrorMessage"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:constants="clr-namespace:Neurotoxin.Godspeed.Shell.Constants"
+                       xmlns:primitives="clr-namespace:Neurotoxin.Godspeed.Shell.Primitives" 
+                       xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                       lex:LocalizeDictionary.DesignCulture="en-US"
+                       lex:ResxLocalizationProvider.DefaultAssembly="Neurotoxin.Godspeed.Shell"
+                       lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+                       Width="520" Topmost="True" SizeToContent="Height" Title="{lex:LocText UnhandledErrorOccurred}">
+    <primitives:DialogBase.Resources>
+        <Style TargetType="Expander">
+            <Setter Property="FontWeight" Value="Bold">
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="ExpanderTemplate">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                 MaxHeight="300" Background="White" Padding="3" FontWeight="Normal">
+                <TextBlock Text="{Binding}" />
+            </ScrollViewer>
+        </DataTemplate>
+    </primitives:DialogBase.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="5,0,5,5" x:Name="Message" TextWrapping="Wrap" />
+        <Expander Grid.Row="1" Margin="5,0,5,5" x:Name="Details" Header="{lex:LocText Details, Suffix={x:Static constants:Strings.Colon}}"
+             ContentTemplate="{StaticResource ExpanderTemplate}" />
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="{lex:LocText Report}" Margin="0,5,5,5" Click="ReportButtonClick" Width="100" />
+            <Button Content="{lex:LocText}" Margin="0,5,0,5" x:Name="Ok" Click="OkButtonClick" Width="80" />
+        </StackPanel>
+    </Grid>
+</primitives:DialogBase>

@@ -1,0 +1,147 @@
+﻿<ListBox x:Class="Neurotoxin.Godspeed.Shell.Views.Controls.FileListPaneContentView"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+         xmlns:inf="clr-namespace:Neurotoxin.Godspeed.Presentation.Infrastructure;assembly=Neurotoxin.Godspeed.Presentation"
+         xmlns:vc="clr-namespace:Neurotoxin.Godspeed.Shell.Views.Controls" 
+         xmlns:constants="clr-namespace:Neurotoxin.Godspeed.Shell.Constants"
+         xmlns:co="clr-namespace:Neurotoxin.Godspeed.Shell.Converters"
+         xmlns:lex="http://wpflocalizeextension.codeplex.com"
+         lex:LocalizeDictionary.DesignCulture="en-US"
+         lex:ResxLocalizationProvider.DefaultAssembly="Neurotoxin.Godspeed.Shell"
+         lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+         ItemsSource="{Binding Items}" 
+         SelectedItem="{Binding CurrentRow}"
+         IsTextSearchEnabled="True" 
+         IsTextSearchCaseSensitive="False"
+         TextSearch.TextPath="ComputedName" 
+         Background="White" 
+         SelectionMode="Single" 
+         Focusable="False"
+         BorderBrush="{StaticResource NormalBorderBrush}"
+         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+         HorizontalContentAlignment="Stretch">
+    <ListBox.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="FileListPaneContextMenu.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ListBox.Resources>
+    <ListBox.ItemTemplate>
+        <DataTemplate>
+            <Grid Height="48" Margin="1,0,1,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Rectangle Grid.ColumnSpan="3" Grid.RowSpan="2" Fill="White" Margin="2,2,2,4"/>
+                <Image Grid.RowSpan="2" Source="{co:ThumbnailConverter ThumbnailSize=32}" Width="32" Height="32" Margin="0,8,0,8" 
+                       SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="{Binding Converter={StaticResource BitmapScalingModeConverter}}"/>
+                
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,6,0,3">
+                    <TextBlock FontWeight="Bold" FontSize="13" x:Name="Primary" Text="{co:TitleConverter}"/>
+                    <Image Source="/Resources/fileaccesserror.png" Width="11" Height="16" Margin="0" HorizontalAlignment="Center"
+                           Visibility="{Binding IsLocked, Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}"
+                           ToolTip="{Binding LockMessage}" />
+                </StackPanel>
+                <TextBlock Grid.Column="1" Grid.Row="1" Opacity="0.4" x:Name="Secondary" Margin="0,0,0,7">
+                    <TextBlock.Text>
+                        <co:NameConverter ConverterParameter="{x:Static constants:NameConverterParameter.Plain}"/>
+                    </TextBlock.Text>
+                </TextBlock>
+
+                <TextBlock Grid.Column="2" Grid.Row="0" x:Name="Date" Text="{Binding Date, StringFormat={lex:LocText Neurotoxin.Godspeed.Shell:Resources:DateTimeFormat}}" Margin="0,6,0,3"/>
+                <TextBlock Grid.Column="2" Grid.Row="1" x:Name="Size" Margin="0,0,0,7">
+                    <TextBlock.Text>
+                        <co:SizeConverter ConverterParameter="{x:Static constants:SizeConverterParameter.ContentView}"/>
+                    </TextBlock.Text>
+                </TextBlock>
+            </Grid>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                    <Setter TargetName="Primary" Property="Foreground" Value="Red" />
+                    <Setter TargetName="Secondary" Property="Foreground" Value="Red" />
+                    <Setter TargetName="Date" Property="Foreground" Value="Red" />
+                    <Setter TargetName="Size" Property="Foreground" Value="Red" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </ListBox.ItemTemplate>
+    <ListBox.ItemContainerStyle>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="ContextMenu" Value="{StaticResource FileListPaneContextMenu}" />
+            <Setter Property="FocusVisualStyle">
+                <Setter.Value>
+                    <Style TargetType="Control">
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Grid SnapsToDevicePixels="true">
+                            <Rectangle StrokeThickness="1" Stroke="Black" StrokeDashArray="1 2" SnapsToDevicePixels="true" Opacity="0" x:Name="Focus" Margin="1,1,1,2" />
+                            <Rectangle Fill="#EBEBEB" Height="1" VerticalAlignment="Bottom" x:Name="Separator"/>
+                            <ContentPresenter
+	                        	x:Name="contentPresenter"
+	                        	Content="{TemplateBinding Content}"
+	                        	ContentTemplate="{TemplateBinding ContentTemplate}"
+	                        	HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+	                        	Margin="{TemplateBinding Padding}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsSelected}" Value="True" />
+                                    <Condition Binding="{Binding Source={StaticResource ViewModel}, Path=Data.IsActive}" Value="True" />
+                                    <Condition Binding="{Binding Source={StaticResource ViewModel}, Path=Data.IsInEditMode}" Value="False" />
+                                </MultiDataTrigger.Conditions>
+                                <Setter TargetName="Focus" Property="Opacity" Value="1" />
+                            </MultiDataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ListBox.ItemContainerStyle>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseUp">
+            <inf:MapMouseEventToCommand Command="{Binding SetActiveCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="PreviewMouseDown">
+            <inf:MapMouseEventToCommand Command="{Binding MouseSelectionCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="MouseDoubleClick">
+            <inf:MapMouseEventToCommand Command="{Binding ChangeDirectoryCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="PreviewKeyDown">
+            <inf:MapKeyboardEventToCommand Command="{Binding ChangeDirectoryCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <ListBox.InputBindings>
+        <KeyBinding Command="{Binding ToggleSelectionCommand}" CommandParameter="{x:Static constants:ToggleSelectionMode.Insert}" Key="Insert" />
+        <KeyBinding Command="{Binding ToggleSelectionCommand}" CommandParameter="{x:Static constants:ToggleSelectionMode.Space}" Key="Space" />
+        <KeyBinding Command="{Binding ToggleSelectionCommand}" CommandParameter="{x:Static constants:ToggleSelectionMode.ShiftDown}" Key="Down" Modifiers="Shift" />
+        <KeyBinding Command="{Binding ToggleSelectionCommand}" CommandParameter="{x:Static constants:ToggleSelectionMode.ShiftUp}" Key="Up" Modifiers="Shift" />
+        <KeyBinding Command="{Binding CalculateSizeCommand}" CommandParameter="{StaticResource True}" Key="Enter" Modifiers="Shift+Alt" />
+        <KeyBinding Command="{Binding SelectAllCommand}" Key="A" Modifiers="Control" />
+        <KeyBinding Command="{Binding GoToFirstCommand}" CommandParameter="{StaticResource True}" Key="Home" Modifiers="Shift" />
+        <KeyBinding Command="{Binding GoToLastCommand}" CommandParameter="{StaticResource True}" Key="End" Modifiers="Shift" />
+        <KeyBinding Command="{Binding RenameTitleCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=vc:FileListPaneContentView}}" Key="F6" Modifiers="Shift" />
+        <KeyBinding Command="{Binding RenameFileSystemItemCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=vc:FileListPaneContentView}}" Key="F6" Modifiers="Ctrl+Shift" />
+        <KeyBinding Command="{Binding RefreshCommand}" Key="R" Modifiers="Control" />
+        <KeyBinding Command="{Binding InvertSelectionCommand}" Key="Multiply" />
+        <KeyBinding Command="{Binding UpCommand}" Key="Back" />
+        <KeyBinding Command="{Binding CancelCommand}" Key="Escape" />
+        <KeyBinding Command="{Binding LaunchCommand}" Key="Enter" Modifiers="Control"/>
+        <KeyBinding Command="{Binding SetViewCommand}" CommandParameter="{x:Static constants:FileListPaneViewMode.List}" Key="F1" Modifiers="Control"/>
+        <KeyBinding Command="{Binding SetViewCommand}" CommandParameter="{x:Static constants:FileListPaneViewMode.Content}" Key="F2" Modifiers="Control"/>
+    </ListBox.InputBindings>
+</ListBox>

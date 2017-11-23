@@ -1,0 +1,27 @@
+﻿<inf:ModuleViewBase x:Class="Neurotoxin.Godspeed.Modules.HexViewer.Views.HexViewerView"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:xv="clr-namespace:Neurotoxin.Godspeed.Modules.HexViewer.Controls"
+                    xmlns:inf="clr-namespace:Neurotoxin.Godspeed.Presentation.Infrastructure;assembly=Neurotoxin.Godspeed.Presentation">
+	<Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" SnapsToDevicePixels="True">
+            <Grid>
+                <xv:HexView Data="{Binding Binary}" 
+                            Map="{Binding Map}" 
+                            Percentage="{Binding Percentage, Mode=TwoWay}"
+                            Result="{Binding StatusBarText, Mode=TwoWay}"
+                            ClearOverlay="HexView_OnClearOverlay" 
+                            DrawOverlay="HexView_OnDrawOverlay"
+                            TooltipOverlay="HexView_OnTooltipOverlay"/>
+                <Canvas>
+                    <Rectangle Fill="Red" x:Name="Rect1" Visibility="Collapsed" Opacity="0.5"/>
+                    <Rectangle Fill="Red" x:Name="Rect2" Visibility="Collapsed" Opacity="0.5"/>
+                    <Rectangle Fill="Red" x:Name="Rect3" Visibility="Collapsed" Opacity="0.5"/>
+                    <Border x:Name="Tooltip" CornerRadius="3" Background="Cornsilk" BorderBrush="Bisque" BorderThickness="1" Visibility="Collapsed">
+                        <TextBlock x:Name="TooltipText"/>
+                    </Border>
+                </Canvas>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</inf:ModuleViewBase>

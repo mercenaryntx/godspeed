@@ -1,0 +1,213 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero">
+
+    <Style x:Key="{x:Type ScrollViewer}" 
+           TargetType="{x:Type ScrollViewer}">
+        <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                    <Grid>
+                        <Grid Background="{TemplateBinding Background}">
+                            <ScrollContentPresenter 
+                                    x:Name="PART_ScrollContentPresenter"
+                                    Margin="{TemplateBinding Padding}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    CanContentScroll="{TemplateBinding CanContentScroll}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <ScrollBar 
+                                    x:Name="PART_VerticalScrollBar"
+                                    Grid.Column="1"
+                                    Minimum="0.0"
+                                    Maximum="{TemplateBinding ScrollableHeight}"
+                                    ViewportSize="{TemplateBinding ViewportHeight}"
+                                    Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=VerticalOffset, Mode=OneWay}"
+                                    Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"         
+                                    Cursor="Arrow"
+                                    AutomationProperties.AutomationId="VerticalScrollBar"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ScrollBarButton" TargetType="{x:Type RepeatButton}">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Path x:Name="Arrow" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{TemplateBinding Background}"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="theme:ScrollChrome.ScrollGlyph" Value="UpArrow">
+                            <Setter TargetName="Arrow" Property="Data" Value="M 3,0 l 3,8 l -6,0 Z"/>
+                        </Trigger>
+                        <Trigger Property="theme:ScrollChrome.ScrollGlyph" Value="DownArrow">
+                            <Setter TargetName="Arrow" Property="Data" Value="M 0,0 l 6,0 l -3,8 Z"/>
+                        </Trigger>
+                        <Trigger Property="theme:ScrollChrome.ScrollGlyph" Value="LeftArrow">
+                            <Setter TargetName="Arrow" Property="Data" Value="M 0,3 l 8,-3 l 0,6 Z"/>
+                        </Trigger>
+                        <Trigger Property="theme:ScrollChrome.ScrollGlyph" Value="RightArrow">
+                            <Setter TargetName="Arrow" Property="Data" Value="M 0,0 l 8,3 l -8,3 Z"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Border Background="#FF777777" CornerRadius="4"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="VerticalScrollBarPageButton"
+           TargetType="{x:Type RepeatButton}">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Rectangle Fill="{TemplateBinding Background}"
+                               Width="{TemplateBinding Width}"
+                               Height="{TemplateBinding Height}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type ScrollBar}"
+           TargetType="{x:Type ScrollBar}">
+        <Setter Property="Background" Value="#FFC7C7C7"/>
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                    <Border x:Name="Border" Opacity="0.75" HorizontalAlignment="Right" Width="6">
+                        <Grid SnapsToDevicePixels="true">
+                            <!--<Grid.RowDefinitions>
+                                <RowDefinition Height="0.00001*"/>
+                                <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                                <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                            </Grid.RowDefinitions>-->
+                            <Border x:Name="Bg" CornerRadius="4" Opacity="0" Background="{TemplateBinding Background}"/>
+                            <Track Name="PART_Track" IsEnabled="{TemplateBinding IsMouseOver}" IsDirectionReversed="true">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Style="{StaticResource VerticalScrollBarPageButton}" Command="{x:Static ScrollBar.PageUpCommand}"/>
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Style="{StaticResource VerticalScrollBarPageButton}" Command="{x:Static ScrollBar.PageDownCommand}"/>
+                                </Track.IncreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb Style="{StaticResource ScrollBarThumb}" theme:ScrollChrome.ScrollGlyph="VerticalGripper"/>
+                                </Track.Thumb>
+                            </Track>
+                            <!--<RepeatButton Style="{StaticResource ScrollBarButton}"
+                                                      Background="#FFFFFFFF"
+                                                      Grid.Row="1"
+                                                      IsEnabled="{TemplateBinding IsMouseOver}"
+                                                      Command="{x:Static ScrollBar.LineUpCommand}"
+                                                      theme:ScrollChrome.ScrollGlyph="UpArrow"
+                                                      RenderTransformOrigin="0.5, 0.5">
+                                <RepeatButton.RenderTransform>
+                                    <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                </RepeatButton.RenderTransform>
+                            </RepeatButton>
+                            <RepeatButton Style="{StaticResource ScrollBarButton}"
+                                                      Background="#FFFFFFFF"
+                                                      Grid.Row="2"
+                                                      IsEnabled="{TemplateBinding IsMouseOver}"
+                                                      Command="{x:Static ScrollBar.LineDownCommand}"
+                                                      theme:ScrollChrome.ScrollGlyph="DownArrow"
+                                                      RenderTransformOrigin="0.5, 0.5">
+                                <RepeatButton.RenderTransform>
+                                    <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                </RepeatButton.RenderTransform>
+                            </RepeatButton>-->
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Border" Property="Visibility" Value="Hidden"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="Orientation" Value="Vertical"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="Border" Property="Width" Value="10"/>
+                                <Setter TargetName="Bg" Property="Opacity" Value="1"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+                <!--<ControlTemplate TargetType="{x:Type ScrollBar}">
+                    <Border x:Name="Bg"
+                            CornerRadius="2"                         
+                            Opacity="0.75"
+                            Background="{TemplateBinding Background}"
+                            VerticalAlignment="Bottom">
+                        <Grid SnapsToDevicePixels="true">
+                            <Grid.RowDefinitions>
+                                <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                                <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                            </Grid.RowDefinitions>
+                            <RepeatButton Style="{StaticResource ScrollBarButton}"
+                                          Background="#FFCBCBCB"
+                                          IsEnabled="{TemplateBinding IsMouseOver}"
+                                          Command="{x:Static ScrollBar.LineUpCommand}"
+                                          theme:ScrollChrome.ScrollGlyph="UpArrow"
+                                          Margin="0,4"/>
+                            <RepeatButton Style="{StaticResource ScrollBarButton}"
+                                          Background="#FFCBCBCB"
+                                          Grid.Row="1"
+                                          IsEnabled="{TemplateBinding IsMouseOver}"
+                                          Command="{x:Static ScrollBar.LineDownCommand}"
+                                          theme:ScrollChrome.ScrollGlyph="DownArrow"
+                                          Margin="0,4">
+                            </RepeatButton>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Bg" Property="Visibility" Value="Hidden"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>-->
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

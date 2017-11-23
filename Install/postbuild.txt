@@ -1,0 +1,8 @@
+echo off
+echo pdb > exclude.lst
+echo xml >> exclude.lst
+echo vshost >> exclude.lst
+echo exclude.lst >> exclude.lst
+xcopy "$(SolutionDir)packages\XCompress\*" "$(TargetDir)" /E /Y
+xcopy "$(TargetDir)*" "$(SolutionDir)..\Install\GODspeed\" /E /Y /EXCLUDE:exclude.lst
+del exclude.lst

@@ -1,0 +1,350 @@
+﻿<primitives:BorderlessWindow x:Class="Neurotoxin.Godspeed.Shell.Views.FileManagerWindow"
+                             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                             xmlns:inf="clr-namespace:Neurotoxin.Godspeed.Presentation.Infrastructure;assembly=Neurotoxin.Godspeed.Presentation"
+                             xmlns:constants="clr-namespace:Neurotoxin.Godspeed.Shell.Constants" 
+                             xmlns:views="clr-namespace:Neurotoxin.Godspeed.Shell.Views" 
+                             xmlns:e="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                             xmlns:commands="clr-namespace:Neurotoxin.Godspeed.Shell.Commands" 
+                             xmlns:primitives="clr-namespace:Neurotoxin.Godspeed.Shell.Primitives"
+                             xmlns:controls="clr-namespace:Neurotoxin.Godspeed.Presentation.Controls;assembly=Neurotoxin.Godspeed.Presentation"
+                             xmlns:s="clr-namespace:Neurotoxin.Godspeed.Shell.Views.Selectors" 
+                             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                             xmlns:f="clr-namespace:Neurotoxin.Godspeed.Shell.Views.Formatters"
+                             lex:LocalizeDictionary.DesignCulture="en-US"
+                             lex:ResxLocalizationProvider.DefaultAssembly="Neurotoxin.Godspeed.Shell"
+                             lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+                             Width="950" Height="600">
+    <primitives:BorderlessWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/ExpressionLight.xaml" />
+                <ResourceDictionary>
+                    <Style TargetType="MenuItem">
+                        <Setter Property="Margin" Value="0" />
+                        <Style.Triggers>
+                            <Trigger Property="Role" Value="TopLevelHeader">
+                                <Setter Property="Template" Value="{StaticResource TopLevelHeaderTemplate}" />
+                                <Setter Property="Grid.IsSharedSizeScope" Value="true" />
+                            </Trigger>
+                            <Trigger Property="Role" Value="SubmenuItem">
+                                <Setter Property="Template" Value="{StaticResource SubmenuItemTemplate}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style TargetType="xctk:RichTextBox">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="IsReadOnly" Value="True"/>
+                        <Setter Property="SelectionOpacity" Value="0"/>
+                        <Setter Property="IsReadOnlyCaretVisible" Value="False"/>
+                        <Setter Property="IsDocumentEnabled" Value="False"/>
+                        <Setter Property="IsHitTestVisible" Value="False"/>
+                        <Setter Property="IsManipulationEnabled" Value="False"/>
+                    </Style>
+                    <ControlTemplate TargetType="MenuItem" x:Key="UserMessageTemplate">
+                        <Border Name="Border" Background="White" BorderThickness="0,0,0,1" BorderBrush="{StaticResource ControlBackgroundBrush}">
+                            <ContentPresenter Name="HeaderHost" ContentSource="Header" RecognizesAccessKey="True"
+                                 VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsRead}" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource MenuHighlight1}" />
+                            </DataTrigger>
+                            <Trigger Property="IsHighlighted" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#F4F6F9" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                    <s:PaneTemplateSelector x:Key="PaneTemplateSelector">
+                        <s:PaneTemplateSelector.DefaultTemplate>
+                            <DataTemplate>
+                                <Grid />
+                            </DataTemplate>
+                        </s:PaneTemplateSelector.DefaultTemplate>
+                        <s:PaneTemplateSelector.FileListTemplate>
+                            <DataTemplate>
+                                <views:FileListPane />
+                            </DataTemplate>
+                        </s:PaneTemplateSelector.FileListTemplate>
+                        <s:PaneTemplateSelector.ConnectionsTemplate>
+                            <DataTemplate>
+                                <views:ConnectionsPane />
+                            </DataTemplate>
+                        </s:PaneTemplateSelector.ConnectionsTemplate>
+                        <s:PaneTemplateSelector.ProfileRebuilderTemplate>
+                            <DataTemplate>
+                                <views:ProfileRebuilderPane />
+                            </DataTemplate>
+                        </s:PaneTemplateSelector.ProfileRebuilderTemplate>
+                    </s:PaneTemplateSelector>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </primitives:BorderlessWindow.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Grid Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Menu>
+                <MenuItem Visibility="Collapsed" />
+                <MenuItem Header="{lex:LocText FilesMenu}">
+                    <MenuItem Header="{lex:LocText Exit}" Command="{x:Static commands:FileManagerCommands.ExitCommand}" />
+                </MenuItem>
+                <MenuItem Header="{lex:LocText ViewMenu}">
+                    <MenuItem Header="{lex:LocText SmallIcons}" IsChecked="{Binding ActivePane.IsListView}" InputGestureText="Ctrl+F1"
+                              Command="{Binding ActivePane.SetViewCommand}" CommandParameter="{x:Static constants:FileListPaneViewMode.List}">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/pane_view_small_icon.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{lex:LocText LargeIcons}" IsChecked="{Binding ActivePane.IsContentView}" InputGestureText="Ctrl+F2"
+                              Command="{Binding ActivePane.SetViewCommand}" CommandParameter="{x:Static constants:FileListPaneViewMode.Content}">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/pane_view_large_icon.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem Header="{lex:LocText Refresh}" Command="{Binding ActivePane.RefreshCommand}" InputGestureText="Ctrl+R">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/refresh.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{lex:LocText CommandsMenu}">
+                    <MenuItem Header="{lex:LocText CalculateOccupiedSpace}" InputGestureText="Shift+Alt+Enter"
+                              Command="{Binding ActivePane.CalculateSizeCommand}" CommandParameter="{StaticResource True}">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/sum.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{lex:LocText ShowFtpLog}" Command="{Binding FtpPane.ShowFtpLogCommand}" />
+                </MenuItem>
+                <MenuItem Header="{lex:LocText FsdMenu}" IsEnabled="{Binding FtpPane.IsFSD, FallbackValue=False}">
+                    <MenuItem Header="{lex:LocText FreestyleDatabaseCheck}" Command="{Binding FtpPane.CheckFreestyleDatabaseCommand}">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/fsd_database_check.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{lex:LocText StartContentScan}" Command="{Binding FtpPane.StartContentScanCommand}">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/magnifier.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{lex:LocText OpenWebUI}" Command="{Binding FtpPane.OpenWebUICommand}">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/fsd_webui.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{lex:LocText Shutdown}" Command="{Binding FtpPane.ShutdownCommand}">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/shutdown_xbox.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{lex:LocText OptionsMenu}">
+                    <MenuItem Header="{lex:LocText Settings, Suffix={x:Static constants:Strings.DotDotDot}}" Command="{x:Static commands:FileManagerCommands.SettingsCommand}">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/cog.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{lex:LocText Statistics, Suffix={x:Static constants:Strings.DotDotDot}}" Command="{x:Static commands:FileManagerCommands.StatisticsCommand}">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/stats.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{lex:LocText HelpMenu}">
+                    <MenuItem Header="{lex:LocText OfficialGODspeedwebsite}" Command="{x:Static commands:FileManagerCommands.VisitWebsiteCommand}" CommandParameter="http://godspeed.codeplex.com">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/codeplex.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{lex:LocText OfficialGODspeedFacebookpage}" Command="{x:Static commands:FileManagerCommands.VisitWebsiteCommand}" CommandParameter="http://www.facebook.com/godspeedftp">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/facebook.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{lex:LocText UserStatisticsParticipation}" Command="{x:Static commands:FileManagerCommands.UserStatisticsParticipationCommand}" />
+                    <MenuItem Header="{lex:LocText About}" Command="{x:Static commands:FileManagerCommands.AboutCommand}">
+                        <MenuItem.Icon>
+                            <controls:GreyableImage Source="/Resources/info.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <Menu Grid.Column="1">
+                <MenuItem Header="{Binding UnreadMessageCount}" FlowDirection="RightToLeft" ItemsSource="{Binding UserMessages}"
+                          SubmenuOpened="OnUserMessagesOpened" SubmenuClosed="OnUserMessagesClosed">
+                    <MenuItem.ItemTemplateSelector>
+                        <s:MessageTemplateSelector>
+                            <s:MessageTemplateSelector.DefaultTemplate>
+                                <DataTemplate>
+                                    <DataTemplate.Resources>
+                                        <f:HtmlFormatter x:Key="Formatter" />
+                                    </DataTemplate.Resources>
+                                    <Grid FlowDirection="LeftToRight">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <controls:GreyableImage Margin="6,3,8,0" Width="16" Height="16" SnapsToDevicePixels="True"
+                                             Source="{Binding Icon}" VerticalAlignment="Top" />
+                                        <xctk:RichTextBox Grid.Column="1" Text="{Binding Path=Message, Mode=OneWay}" TextFormatter="{StaticResource Formatter}"
+                                             Cursor="Hand" />
+                                        <StackPanel Grid.Column="2" Margin="6,3,12,0" VerticalAlignment="Top" Width="13">
+                                            <Border Name="Checked" Height="13" Background="Transparent" Margin="0,0,0,3">
+                                                <!--<Path Name="CheckMark" Width="9" Height="9" Visibility="Hidden" SnapsToDevicePixels="False" Fill="{StaticResource MenuGlyphBrush}" Stretch="Fill" Data="M0,2 L0,4.8 L2.5,7.4 L7.1,2.8 L7.1,0 L2.5,4.6 z" />-->
+                                                <Ellipse Name="CheckMark" Width="7" Height="7" Stroke="{StaticResource MenuGlyphBrush}"
+                                                     StrokeThickness="2" />
+                                            </Border>
+                                            <Button Name="Remove" Height="13" Command="{Binding ElementName=LayoutRoot, Path=DataContext.RemoveUserMessageCommand}"
+                                                 CommandParameter="{Binding}">
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border Background="Transparent">
+                                                            <Path Name="RemoveMark" Width="7" Height="7" SnapsToDevicePixels="False" Stroke="{StaticResource MenuGlyphBrush}"
+                                                                 StrokeThickness="2" Data="M 0 0 L 7 7 M 0 7 L 7 0" />
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding IsChecked}" Value="True">
+                                            <Setter TargetName="CheckMark" Property="Fill" Value="{StaticResource MenuGlyphBrush}" />
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </s:MessageTemplateSelector.DefaultTemplate>
+                            <s:MessageTemplateSelector.NoMessagesTemplate>
+                                <DataTemplate>
+                                    <Grid FlowDirection="LeftToRight">
+                                        <TextBlock Text="{Binding Message}" HorizontalAlignment="Center" Margin="0,3,0,3" />
+                                    </Grid>
+                                </DataTemplate>
+                            </s:MessageTemplateSelector.NoMessagesTemplate>
+                        </s:MessageTemplateSelector>
+                    </MenuItem.ItemTemplateSelector>
+                    <MenuItem.ItemContainerStyleSelector>
+                        <s:MessageStyleSelector>
+                            <s:MessageStyleSelector.DefaultStyle>
+                                <Style TargetType="MenuItem">
+                                    <Setter Property="Command" Value="{Binding ElementName=LayoutRoot, Path=DataContext.OpenUserMessageCommand}" />
+                                    <Setter Property="CommandParameter" Value="{Binding CommandParameter}" />
+                                    <Setter Property="Margin" Value="0" />
+                                    <Setter Property="Width" Value="350" />
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="Template" Value="{StaticResource UserMessageTemplate}" />
+                                </Style>
+                            </s:MessageStyleSelector.DefaultStyle>
+                            <s:MessageStyleSelector.NoMessagesStyle>
+                                <Style TargetType="MenuItem">
+                                    <Setter Property="Margin" Value="0" />
+                                    <Setter Property="Width" Value="350" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="MenuItem">
+                                                <Border Name="Border" Background="White">
+                                                    <ContentPresenter Name="HeaderHost" ContentSource="Header" RecognizesAccessKey="True" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </s:MessageStyleSelector.NoMessagesStyle>
+                        </s:MessageStyleSelector>
+                    </MenuItem.ItemContainerStyleSelector>
+                    <MenuItem.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
+                                <TextBlock Text="{lex:LocText Messages}" />
+                                <Border x:Name="UnreadCount" CornerRadius="8" Background="#dc0d17" Margin="3,1,0,0">
+                                    <TextBlock Text="{Binding}" Foreground="White" FontWeight="Bold" Margin="5,0,5,0"
+                                         FontSize="10" />
+                                </Border>
+                            </StackPanel>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding}" Value="0">
+                                    <Setter TargetName="UnreadCount" Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </MenuItem.HeaderTemplate>
+                </MenuItem>
+            </Menu>
+            <AdornerDecorator Grid.Row="1" Grid.ColumnSpan="2">
+                <Grid x:Name="PanesGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Grid.Column="0" Grid.Row="1" Content="{Binding LeftPane}" ContentTemplateSelector="{StaticResource PaneTemplateSelector}" x:Name="LeftPane" />
+                    <GridSplitter Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Stretch" ShowsPreview="True" Width="3" 
+                                  Background="{StaticResource ControlBackgroundBrush}" x:Name="Splitter">
+                        <GridSplitter.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="20/80" Command="{x:Static commands:FileManagerCommands.SplitterCommand}" CommandParameter="20"/>
+                                <MenuItem Header="30/70" Command="{x:Static commands:FileManagerCommands.SplitterCommand}" CommandParameter="30"/>
+                                <MenuItem Header="40/60" Command="{x:Static commands:FileManagerCommands.SplitterCommand}" CommandParameter="40"/>
+                                <MenuItem Header="50/50" Command="{x:Static commands:FileManagerCommands.SplitterCommand}" CommandParameter="50"/>
+                                <MenuItem Header="60/40" Command="{x:Static commands:FileManagerCommands.SplitterCommand}" CommandParameter="60"/>
+                                <MenuItem Header="70/30" Command="{x:Static commands:FileManagerCommands.SplitterCommand}" CommandParameter="70"/>
+                                <MenuItem Header="80/20" Command="{x:Static commands:FileManagerCommands.SplitterCommand}" CommandParameter="80"/>
+                            </ContextMenu>
+                        </GridSplitter.ContextMenu>
+                        <e:Interaction.Triggers>
+                            <e:EventTrigger EventName="MouseDoubleClick">
+                                <inf:MapMouseEventToCommand Command="{x:Static commands:FileManagerCommands.SplitterCommand}" CommandParameter="50" />
+                            </e:EventTrigger>
+                        </e:Interaction.Triggers>
+                    </GridSplitter>
+                    <ContentControl Grid.Column="2" Grid.Row="1" Content="{Binding RightPane}" ContentTemplateSelector="{StaticResource PaneTemplateSelector}" x:Name="RightPane" />
+                </Grid>
+            </AdornerDecorator>
+            <Grid Grid.Row="2" Grid.ColumnSpan="2" Margin="0,3,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Content="{lex:LocText EditButton}" Command="{Binding EditCommand}" Margin="0,0,2,0" />
+                <Button Grid.Column="1" Content="{lex:LocText CopyButton}" Command="{Binding CopyCommand}" Margin="0,0,2,0" />
+                <Button Grid.Column="2" Content="{lex:LocText MoveButton}" Command="{Binding MoveCommand}" Margin="0,0,2,0" />
+                <Button Grid.Column="3" Content="{lex:LocText NewFolderButton}" Command="{Binding NewFolderCommand}" Margin="0,0,2,0" />
+                <Button Grid.Column="4" Content="{lex:LocText DeleteButton}" Command="{Binding DeleteCommand}" />
+            </Grid>
+        </Grid>
+        <e:Interaction.Triggers>
+            <e:EventTrigger EventName="PreviewKeyDown">
+                <inf:MapKeyboardEventToCommand Command="{Binding SwitchPaneCommand}" />
+            </e:EventTrigger>
+        </e:Interaction.Triggers>
+        <Grid.InputBindings>
+            <KeyBinding Command="{Binding EditCommand}" Key="F4" />
+            <KeyBinding Command="{Binding CopyCommand}" Key="F5" />
+            <KeyBinding Command="{Binding MoveCommand}" Key="F6" />
+            <KeyBinding Command="{Binding NewFolderCommand}" Key="F7" />
+            <KeyBinding Command="{Binding DeleteCommand}" Key="F8" />
+            <KeyBinding Command="{x:Static commands:FileManagerCommands.OpenDriveDropdownCommand}" CommandParameter="{Binding ElementName=LeftPane}" Key="F1" Modifiers="Alt" />
+            <KeyBinding Command="{x:Static commands:FileManagerCommands.OpenDriveDropdownCommand}" CommandParameter="{Binding ElementName=RightPane}" Key="F2" Modifiers="Alt" />
+        </Grid.InputBindings>
+    </Grid>
+</primitives:BorderlessWindow>

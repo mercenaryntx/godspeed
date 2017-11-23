@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="Neurotoxin.Godspeed.Presentation.Controls.ProgressIndicator"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="32" Height="32">
+    <UserControl.Clip>
+        <RectangleGeometry Rect="0,0,32,32" RadiusX="4" RadiusY="4"/>
+    </UserControl.Clip>
+    <Grid Background="Transparent">
+        <Grid Margin="0,2,0,0" x:Name="Parts" Background="Transparent">
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" x:Name="Piece01">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="0"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" Opacity="0.3" x:Name="Piece02">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="30"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" Opacity="0.3" x:Name="Piece03">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="60"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" Opacity="0.3" x:Name="Piece04">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="90"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" Opacity="0.3" x:Name="Piece05">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="120"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" Opacity="0.3" x:Name="Piece06">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="150"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" Opacity="0.4" x:Name="Piece07">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="180"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" Opacity="0.5" x:Name="Piece08">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="210"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" Opacity="0.6" x:Name="Piece09">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="240"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" Opacity="0.7" x:Name="Piece10">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="270"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" Opacity="0.8" x:Name="Piece11">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="300"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Width="2" Fill="#FF18307A" Height="6" Margin="0,0,0,20" RenderTransformOrigin="0.5,2" Opacity="0.9" x:Name="Piece12">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="330"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,104 @@
+﻿<primitives:DialogBase x:Class="Neurotoxin.Godspeed.Shell.Views.Dialogs.GodConversionSettingsDialog"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:primitives="clr-namespace:Neurotoxin.Godspeed.Shell.Primitives"
+                       xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                       xmlns:constants="clr-namespace:Neurotoxin.Godspeed.Shell.Constants"
+                       lex:LocalizeDictionary.DesignCulture="en-US"
+                       lex:ResxLocalizationProvider.DefaultAssembly="Neurotoxin.Godspeed.Shell"
+                       lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+                       Width="600" Title="{lex:Loc IsoToGodConversion}">
+    <primitives:DialogBase.Resources>
+        <Style TargetType="TextBox"/>
+    </primitives:DialogBase.Resources>
+    <Grid x:Name="LayoutRoot" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <GroupBox Grid.Row="0" Header="{lex:Loc TitleDetails}" Margin="0,0,0,5">
+            <Grid Margin="0,5,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="27" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="22" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="{lex:LocText Title, Suffix={x:Static constants:Strings.Colon}}" VerticalAlignment="Center" Margin="0,0,10,5" />
+                <TextBox Grid.Column="1" Grid.Row="0" Margin="0,0,0,5" x:Name="Title" Text="{Binding Name}"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="{lex:LocText TitleId, Suffix={x:Static constants:Strings.Colon}}" VerticalAlignment="Center" Margin="0,0,10,5" />
+                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding TitleId}" FontWeight="Bold" Margin="0,0,0,5" VerticalAlignment="Center"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="{lex:LocText MediaId, Suffix={x:Static constants:Strings.Colon}}" VerticalAlignment="Center" Margin="0,0,10,5" />
+                <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding MediaId}" FontWeight="Bold" Margin="0,0,0,5" VerticalAlignment="Center"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="{lex:LocText Disc, Suffix={x:Static constants:Strings.Colon}}" VerticalAlignment="Center" Margin="0,0,10,5" />
+                <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding Disc}" FontWeight="Bold" Margin="0,0,0,5" VerticalAlignment="Center"/>
+
+                <Image Grid.Column="2" Grid.Row="0" Grid.RowSpan="4" Source="{Binding Thumbnail}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="64" Height="64" Margin="10,0,10,0"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Header="{lex:Loc Output}" Margin="0,0,0,5">
+            <Grid Margin="0,5,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="27" />
+                    <RowDefinition Height="27" />
+                    <RowDefinition Height="27" />
+                    <RowDefinition Height="27" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="{lex:LocText OutputLocation, Suffix={x:Static constants:Strings.Colon}}" VerticalAlignment="Center" Margin="0,0,5,5" />
+                <DockPanel Grid.Column="1" Grid.Row="0" Margin="0,0,0,5">
+                    <Button DockPanel.Dock="Right" Content="{lex:Loc Browse}" MinWidth="70" Margin="5,0,0,0" Command="{Binding BrowseCommand}" CommandParameter="TargetPath"/>
+                    <TextBox Text="{Binding TargetPath}" IsReadOnly="True" />
+                </DockPanel>
+
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="{lex:LocText PaddingRemoval, Suffix={x:Static constants:Strings.Colon}}" VerticalAlignment="Center" Margin="0,0,5,5" />
+                <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,0,0,5" ItemsSource="{Binding RebuildTypeOptions}" SelectedItem="{Binding RebuildType}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Value, Converter={StaticResource LocalizedEnumConverter}}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="IsEnabled" Value="{Binding IsSelectable}" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                </ComboBox>
+
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="{lex:LocText RebuiltIsoLocation, Suffix={x:Static constants:Strings.Colon}}" VerticalAlignment="Center" Margin="0,0,5,5" IsEnabled="{Binding IsFullRebuild}" />
+                <DockPanel Grid.Column="1" Grid.Row="2" Margin="0,0,0,5" IsEnabled="{Binding IsFullRebuild}">
+                    <Button DockPanel.Dock="Right" Content="{lex:Loc Browse}" MinWidth="70" Margin="5,0,0,0" Command="{Binding BrowseCommand}" CommandParameter="TempPath"/>
+                    <TextBox Text="{Binding TempPath}" IsReadOnly="True" />
+                </DockPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" IsEnabled="{Binding IsFullRebuild}">
+                    <CheckBox Margin="0,2,0,5" IsChecked="{Binding SaveRebuiltIsoImage}"/>
+                    <TextBlock Text="{lex:Loc SaveRebuiltIsoImage}" VerticalAlignment="Center" Margin="0,0,0,5" />
+                    <CheckBox Margin="15,2,0,5" IsChecked="{Binding SkipSystemUpdate}"/>
+                    <TextBlock Text="{lex:Loc SkipSystemUpdate}" VerticalAlignment="Center" Margin="0,0,0,5" />
+                </StackPanel>
+            </Grid>        
+        </GroupBox>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,5,0">
+            <Button Content="{lex:LocText StartConversion}" MinWidth="75" Padding="10,0,10,0" Margin="0,0,5,0" Click="OkButtonClick" />
+            <Button Content="{lex:LocText Cancel}" Width="75" Click="CancelButtonClick" />
+        </StackPanel>
+    </Grid>
+</primitives:DialogBase>

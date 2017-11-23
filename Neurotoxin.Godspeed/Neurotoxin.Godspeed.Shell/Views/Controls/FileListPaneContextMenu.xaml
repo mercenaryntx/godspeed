@@ -1,0 +1,146 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:inf="clr-namespace:Neurotoxin.Godspeed.Presentation.Infrastructure;assembly=Neurotoxin.Godspeed.Presentation"
+                    xmlns:controls="clr-namespace:Neurotoxin.Godspeed.Presentation.Controls;assembly=Neurotoxin.Godspeed.Presentation"
+                    xmlns:constants="clr-namespace:Neurotoxin.Godspeed.Shell.Constants" 
+                    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                    xmlns:Commands="clr-namespace:Neurotoxin.Godspeed.Shell.Commands"
+                    xmlns:constants1="clr-namespace:Neurotoxin.Godspeed.Presentation.Infrastructure.Constants;assembly=Neurotoxin.Godspeed.Presentation">
+
+    <inf:BindingProxy x:Key="ViewModel" Data="{Binding}" />
+    <constants:OpenStfsPackageMode x:Key="Browsing">Browsing</constants:OpenStfsPackageMode>
+    <constants:OpenStfsPackageMode x:Key="Repair">Repair</constants:OpenStfsPackageMode>
+
+    <ContextMenu x:Key="FileListPaneContextMenu">
+        <MenuItem Command="{Binding Source={StaticResource ViewModel}, Path=Data.OpenWithExplorerCommand}">
+            <MenuItem.Header>
+                <TextBlock Text="{Binding ComputedName}" FontWeight="Bold" MaxWidth="400" TextTrimming="CharacterEllipsis"/>
+            </MenuItem.Header>
+        </MenuItem>
+
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:RecognizeAgain}" Command="{Binding Source={StaticResource ViewModel}, Path=Data.RefreshTitleCommand}">
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/magnifier.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:RecognizeTitlesFromProfile}"
+                  Visibility="{Binding Source={StaticResource ViewModel}, Path=Data.CurrentRow.IsProfile, Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}"
+                  Command="{Binding Source={StaticResource ViewModel}, Path=Data.RecognizeFromProfileCommand}">
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/recognize_from_profile.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:LaunchGame}" 
+                  Command="{Binding Source={StaticResource ViewModel}, Path=Data.LaunchCommand}">
+            <MenuItem.Visibility>
+                <MultiBinding Converter="{StaticResource BoolToVis}" FallbackValue="Collapsed">
+                    <Binding Source="{StaticResource ViewModel}" Path="Data.CurrentRow.IsGame"/>
+                    <Binding Source="{StaticResource ViewModel}" Path="Data.LaunchCommand"/>
+                </MultiBinding>
+            </MenuItem.Visibility>
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/control_play.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:LaunchXex}" 
+                  Command="{Binding Source={StaticResource ViewModel}, Path=Data.LaunchCommand}">
+            <MenuItem.Visibility>
+                <MultiBinding Converter="{StaticResource BoolToVis}" FallbackValue="Collapsed">
+                    <Binding Source="{StaticResource ViewModel}" Path="Data.CurrentRow.IsXex"/>
+                    <Binding Source="{StaticResource ViewModel}" Path="Data.LaunchCommand"/>
+                </MultiBinding>
+            </MenuItem.Visibility>
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/control_play.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:Extract}" 
+                  Visibility="{Binding Source={StaticResource ViewModel}, Path=Data.CurrentRow.IsIso, Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}"
+                  Command="{Binding Source={StaticResource ViewModel}, Path=Data.OpenIsoCommand}"
+                  CommandParameter="{x:Static constants1:LoadCommand.Extract}">
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/Items/16x16/package.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:ConvertToGod}" 
+                  Visibility="{Binding Source={StaticResource ViewModel}, Path=Data.CurrentRow.IsIso, Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}"
+                  Command="{Binding Source={StaticResource ViewModel}, Path=Data.OpenIsoCommand}"
+                  CommandParameter="{x:Static constants1:LoadCommand.Convert}">
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/Items/16x16/xbox_logo.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:OpenProfile}" 
+                  Visibility="{Binding Source={StaticResource ViewModel}, Path=Data.CurrentRow.IsProfile, Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}"
+                  Command="{Binding Source={StaticResource ViewModel}, Path=Data.OpenStfsPackageCommand}"
+                  CommandParameter="{StaticResource Browsing}">
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/Items/16x16/package.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <!--<MenuItem Header="{lex:Loc Neurotoxin.Godspeed.Shell:Resources:RepairProfile}" 
+                                          Visibility="{Binding Source={StaticResource ViewModel}, Path=Data.CurrentRow.IsProfile, Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}"
+                                          Command="{Binding Source={StaticResource ViewModel}, Path=Data.OpenStfsPackageCommand}" CommandParameter="{StaticResource Repair}">
+                                    <MenuItem.Icon>
+                                        <controls:GreyableImage Source="/Resources/package.png" Width="16" Height="16" SnapsToDevicePixels="True"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>-->
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:CopyTitleIDtoClipboard}"
+                  Visibility="{Binding Source={StaticResource ViewModel}, Path=Data.CurrentRow.IsGame, Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}"
+                  Command="{Binding Source={StaticResource ViewModel}, Path=Data.CopyTitleIdToClipboardCommand}">
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/clipboard_sign.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:SearchGoogle}"
+                  Visibility="{Binding Source={StaticResource ViewModel}, Path=Data.CurrentRow.IsGame, Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}"
+                  Command="{Binding Source={StaticResource ViewModel}, Path=Data.SearchGoogleCommand}">
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/search.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:SaveThumbnailAs}"
+                  Visibility="{Binding Source={StaticResource ViewModel}, Path=Data.CurrentRow.HasThumbnail, Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}"
+                  Command="{Binding Source={StaticResource ViewModel}, Path=Data.SaveThumbnailCommand}">
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/savethumbnail.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <Separator />
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:RenameTitle}" Command="{x:Static Commands:FileListCommands.RenameTitleCommand}">
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/rename.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="{Binding Path=Type, Converter={StaticResource ResxConverter}, ConverterParameter={x:Static constants:Strings.RenameFormat}}" 
+                  Command="{x:Static Commands:FileListCommands.RenameFileSystemItemCommand}">
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/rename.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <Separator />
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:Copy}" Command="{Binding Source={StaticResource ViewModel}, Path=Data.FileOperationCommand}" CommandParameter="{x:Static constants:FileOperation.Copy}"/>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:Move}" Command="{Binding Source={StaticResource ViewModel}, Path=Data.FileOperationCommand}" CommandParameter="{x:Static constants:FileOperation.Move}"/>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:Delete}" Command="{Binding Source={StaticResource ViewModel}, Path=Data.FileOperationCommand}" CommandParameter="{x:Static constants:FileOperation.Delete}"/>
+        <Separator />
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:View}">
+            <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:SmallIcons}" IsCheckable="True" IsChecked="{Binding Source={StaticResource ViewModel}, Path=Data.IsListView}"/>
+            <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:LargeIcons}" IsCheckable="True" IsChecked="{Binding Source={StaticResource ViewModel}, Path=Data.IsContentView}"/>
+        </MenuItem>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:SortBy}">
+            <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:Name}" IsCheckable="True" IsChecked="{Binding Source={StaticResource ViewModel}, Path=Data.IsSortedByName}"/>
+            <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:Title}" IsCheckable="True" IsChecked="{Binding Source={StaticResource ViewModel}, Path=Data.IsSortedByTitle}"/>
+            <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:Date}" IsCheckable="True" IsChecked="{Binding Source={StaticResource ViewModel}, Path=Data.IsSortedByDate}"/>
+            <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:Size}" IsCheckable="True" IsChecked="{Binding Source={StaticResource ViewModel}, Path=Data.IsSortedBySize}"/>
+            <Separator />
+            <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:Ascending}" IsCheckable="True" IsChecked="{Binding Source={StaticResource ViewModel}, Path=Data.IsInAscendingOrder}"/>
+            <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:Descending}" IsCheckable="True" IsChecked="{Binding Source={StaticResource ViewModel}, Path=Data.IsInDescendingOrder}"/>
+        </MenuItem>
+        <MenuItem Header="{lex:LocText Neurotoxin.Godspeed.Shell:Resources:Refresh}" Command="{Binding Source={StaticResource ViewModel}, Path=Data.RefreshCommand}">
+            <MenuItem.Icon>
+                <controls:GreyableImage Source="/Resources/refresh.png" Width="16" Height="16" SnapsToDevicePixels="True" />
+            </MenuItem.Icon>
+        </MenuItem>
+    </ContextMenu>
+
+</ResourceDictionary>

@@ -1,0 +1,144 @@
+﻿<primitives:DialogBase x:Class="Neurotoxin.Godspeed.Shell.Views.Dialogs.TransferProgressDialog"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:converters="clr-namespace:Neurotoxin.Godspeed.Shell.Converters" 
+                       xmlns:dialogs="clr-namespace:Neurotoxin.Godspeed.Shell.Views.Dialogs"
+                       xmlns:primitives="clr-namespace:Neurotoxin.Godspeed.Shell.Primitives" 
+                       xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                       xmlns:c="clr-namespace:Neurotoxin.Godspeed.Presentation.Controls;assembly=Neurotoxin.Godspeed.Presentation"
+                       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                       xmlns:b="clr-namespace:Neurotoxin.Godspeed.Shell.Views.Behaviors"
+                       lex:LocalizeDictionary.DesignCulture="en-US"
+                       lex:ResxLocalizationProvider.DefaultAssembly="Neurotoxin.Godspeed.Shell"
+                       lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+                       Width="520">
+    <primitives:DialogBase.TaskbarItemInfo>
+        <TaskbarItemInfo ProgressValue="{Binding TotalProgressDouble}" ProgressState="{Binding ProgressState}">
+            <TaskbarItemInfo.ThumbButtonInfos>
+                <ThumbButtonInfoCollection>
+                    <ThumbButtonInfo Description="Pause" Command="{Binding PauseCommand}" ImageSource="/Resources/pause.png"
+                         Visibility="{Binding Path=IsPaused, Converter={StaticResource BoolToVis}, ConverterParameter=True}"
+                         IsEnabled="{Binding Path=IsResumeSupported}" />
+                    <ThumbButtonInfo Description="Continue" Command="{Binding ContinueCommand}" ImageSource="/Resources/play.png"
+                         Visibility="{Binding Path=IsPaused, Converter={StaticResource BoolToVis}}" />
+                </ThumbButtonInfoCollection>
+            </TaskbarItemInfo.ThumbButtonInfos>
+        </TaskbarItemInfo>
+    </primitives:DialogBase.TaskbarItemInfo>
+    <primitives:DialogBase.Title>
+        <MultiBinding StringFormat="{x:Static dialogs:TransferProgressDialog.TitleFormat}">
+            <Binding Path="UserAction" Converter="{StaticResource ResxConverter}" />
+            <Binding Path="TotalProgress" />
+        </MultiBinding>
+    </primitives:DialogBase.Title>
+    <primitives:DialogBase.Resources>
+        <converters:FileOperationConverter x:Key="FileOperationConverter" />
+    </primitives:DialogBase.Resources>
+    
+    <Grid x:Name="LayoutRoot" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Path=TransferAction, StringFormat={x:Static dialogs:TransferProgressDialog.ActionFormat}}" />
+            <TextBlock Grid.Column="1" Text="{Binding SourceFile}" TextTrimming="CharacterEllipsis" />
+        </Grid>
+        <DockPanel Grid.Row="1" Margin="0,2,0,2" Visibility="{Binding UserAction, Converter={StaticResource FileOperationConverter}}">
+            <TextBlock DockPanel.Dock="Right" Text="%" Margin="2,0,0,0" />
+            <TextBlock DockPanel.Dock="Right" Text="{Binding CurrentFileProgress}" Margin="5,0,0,0"
+                 Width="30" TextAlignment="Right" />
+            <ProgressBar Minimum="0" Maximum="100" Value="{Binding CurrentFileProgress, Mode=OneWay}" />
+        </DockPanel>
+        <DockPanel Grid.Row="2" Margin="0,2,0,2">
+            <TextBlock DockPanel.Dock="Right" Text="%" Margin="2,0,0,0" />
+            <TextBlock DockPanel.Dock="Right" Text="{Binding TotalProgress}" Margin="5,0,0,0"
+                 Width="30" TextAlignment="Right" />
+            <ProgressBar Minimum="0" Maximum="100" Value="{Binding TotalProgress, Mode=OneWay}" />
+        </DockPanel>
+        <DockPanel Grid.Row="3" Margin="0,0,0,5">
+            <TextBlock DockPanel.Dock="Left">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{x:Static dialogs:TransferProgressDialog.FileCountFormat}">
+                        <Binding Path="FilesTransferred" />
+                        <Binding Path="FileCount" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Right" Visibility="{Binding UserAction, Converter={StaticResource FileOperationConverter}}">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{x:Static dialogs:TransferProgressDialog.BytesFormat}">
+                        <Binding Path="BytesTransferred" />
+                        <Binding Path="TotalBytes" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+        </DockPanel>
+
+        <DockPanel Grid.Row="4" Margin="0,0,0,5">
+            <TextBlock DockPanel.Dock="Right" Text="{Binding Path=Speed, StringFormat={x:Static dialogs:TransferProgressDialog.SpeedFormat}}" />
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{x:Static dialogs:TransferProgressDialog.TimeFormat}">
+                        <Binding Path="ElapsedTime" />
+                        <Binding Path="RemainingTime" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+        </DockPanel>
+
+        <Grid Grid.Row="5" HorizontalAlignment="Left" Visibility="{Binding UserAction, Converter={StaticResource FileOperationConverter}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <CheckBox Grid.Row="0" IsChecked="{Binding IsShutdownXboxEnabled}" Visibility="{Binding IsShutdownSupported, Converter={StaticResource BoolToVis}}"/>
+            <CheckBox Grid.Row="1" IsChecked="{Binding IsShutdownPcEnabled}"/>
+            <CheckBox Grid.Row="2" IsChecked="{Binding IsVerificationEnabled}" Visibility="{Binding IsVerificationSupported, Converter={StaticResource BoolToVis}}"/>
+            
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=ShutdownXbox}" Visibility="{Binding IsShutdownSupported, Converter={StaticResource BoolToVis}}" Margin="0,-2,0,0"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="{lex:Loc ShutdownPc}" VerticalAlignment="Top" Margin="0,-2,0,0"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" Text="{lex:Loc VerifyFileHash}" Visibility="{Binding IsVerificationSupported, Converter={StaticResource BoolToVis}}" Margin="0,-2,0,0"/>
+        </Grid>
+
+        <StackPanel Grid.Row="5" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Bottom">
+            <!--<xctk:DropDownButton Width="75" Content="{lex:Loc OptionsMenu}" Margin="0,0,5,0" Visibility="{Binding UserAction, Converter={StaticResource FileOperationConverter}}">
+                <xctk:DropDownButton.DropDownContent>
+                    <StackPanel>
+                        <MenuItem Header="{lex:Loc Neurotoxin.Godspeed.Shell:Resources:VerifyFileHash}" IsCheckable="True" IsChecked="{Binding IsVerificationEnabled}" IsEnabled="{Binding IsVerificationSupported}"/>
+                        <Separator/>
+                        <MenuItem Header="{lex:Loc Neurotoxin.Godspeed.Shell:Resources:ShutdownPc}" IsCheckable="True" IsChecked="{Binding IsShutdownPcEnabled}"/>
+                        <MenuItem Header="{Binding Path=ShutdownXbox}" IsCheckable="True" IsChecked="{Binding IsShutdownXboxEnabled}" IsEnabled="{Binding IsShutdownSupported}"/>
+                        <MenuItem Header="{Binding Path=CompleteShutdown}" IsCheckable="True" IsChecked="{Binding IsCompleteShutdownEnabled}" IsEnabled="{Binding IsShutdownSupported}"/>
+                        <i:Interaction.Behaviors>
+                            <b:MenuItemButtonGroupBehavior/>
+                        </i:Interaction.Behaviors>
+                    </StackPanel>
+                </xctk:DropDownButton.DropDownContent>
+            </xctk:DropDownButton>-->
+            <Button Width="75" Content="{lex:LocText Pause}" Command="{Binding PauseCommand}" Margin="0,0,5,0" 
+                    Visibility="{Binding Path=IsPaused, Converter={StaticResource BoolToVis}, ConverterParameter=True}" 
+                    IsEnabled="{Binding Path=IsResumeSupported}" />
+            <Button Width="75" Content="{lex:LocText Continue}" Command="{Binding ContinueCommand}" Margin="0,0,5,0" 
+                    Visibility="{Binding Path=IsPaused, Converter={StaticResource BoolToVis}}" />
+            <Button Width="75" Content="{lex:LocText}" Click="CancelButtonClick" x:Name="Abort" />
+        </StackPanel>
+    </Grid>
+</primitives:DialogBase>

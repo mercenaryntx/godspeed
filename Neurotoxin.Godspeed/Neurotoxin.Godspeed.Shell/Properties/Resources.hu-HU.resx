@@ -1,0 +1,1347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TargetFileHeader" xml:space="preserve">
+    <value>Felülírod ezt</value>
+  </data>
+  <data name="SourceFileHeader" xml:space="preserve">
+    <value>Ezzel</value>
+  </data>
+  <data name="Overwrite" xml:space="preserve">
+    <value>Felülír</value>
+  </data>
+  <data name="OverwriteAll" xml:space="preserve">
+    <value>Mindet felülír</value>
+  </data>
+  <data name="OverwriteAllSmaller" xml:space="preserve">
+    <value>Kisebb méretűeket felülír</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Folytat</value>
+  </data>
+  <data name="ResumeAll" xml:space="preserve">
+    <value>Mindet folytat</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Átnevez</value>
+  </data>
+  <data name="Skip" xml:space="preserve">
+    <value>Kihagy</value>
+  </data>
+  <data name="SkipAll" xml:space="preserve">
+    <value>Mindet kihagy</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Mégse</value>
+  </data>
+  <data name="WriteErrorDialogButtonWidth" xml:space="preserve">
+    <value>140</value>
+  </data>
+  <data name="YesImWillingToParticipate" xml:space="preserve">
+    <value>Igen, szeretnék benne részt venni (Ajánlott)</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Igen</value>
+  </data>
+  <data name="XNASingular" xml:space="preserve">
+    <value>XNA Tartalom</value>
+  </data>
+  <data name="XNAPlural" xml:space="preserve">
+    <value>XNA Tartalmak</value>
+  </data>
+  <data name="XNAIndiePlayer" xml:space="preserve">
+    <value>XNA Indie Player</value>
+  </data>
+  <data name="XboxLiveContent" xml:space="preserve">
+    <value>Xbox Live Tartalom</value>
+  </data>
+  <data name="XboxLiveArcadeGameSingular" xml:space="preserve">
+    <value>XBLA Tartalom</value>
+  </data>
+  <data name="XboxLiveArcadeGamePlural" xml:space="preserve">
+    <value>XBLA Tartalmak</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Figyelem</value>
+  </data>
+  <data name="VideoSingular" xml:space="preserve">
+    <value>Videó</value>
+  </data>
+  <data name="VideoPlural" xml:space="preserve">
+    <value>Videók</value>
+  </data>
+  <data name="UserStatisticsParticipation" xml:space="preserve">
+    <value>Részvétel a Felhasználói Statisztikában</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Felhasználónév</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Feltöltés</value>
+  </data>
+  <data name="UnrecognizedGame" xml:space="preserve">
+    <value>Ismeretlen játék</value>
+  </data>
+  <data name="UnknownProfile" xml:space="preserve">
+    <value>Ismeretlen profil</value>
+  </data>
+  <data name="UnknownGame" xml:space="preserve">
+    <value>Ismeretlen játék</value>
+  </data>
+  <data name="UnknownDataFile" xml:space="preserve">
+    <value>Ismeretlen adat fájl</value>
+  </data>
+  <data name="UnknownContent" xml:space="preserve">
+    <value>Ismeretlen tartalom</value>
+  </data>
+  <data name="UnhandledErrorOccurred" xml:space="preserve">
+    <value>Lekezeletlen hiba történt</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Típus</value>
+  </data>
+  <data name="TotalTimeSpentWithTransfer" xml:space="preserve">
+    <value>Másolással töltött idő</value>
+  </data>
+  <data name="TotalUsageTime" xml:space="preserve">
+    <value>Használati idő</value>
+  </data>
+  <data name="TitleUpdateSingular" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="TitleUpdatePlural" xml:space="preserve">
+    <value>Frissítések</value>
+  </data>
+  <data name="TitleTypeSystemFile" xml:space="preserve">
+    <value>Rendszerfájl</value>
+  </data>
+  <data name="TitleTypeSystemDir" xml:space="preserve">
+    <value>Rendszermappa</value>
+  </data>
+  <data name="TitleTypeProfile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="TitleTypeGame" xml:space="preserve">
+    <value>Játék</value>
+  </data>
+  <data name="TitleTypeDataFile" xml:space="preserve">
+    <value>Adatfájl</value>
+  </data>
+  <data name="TitleTypeContent" xml:space="preserve">
+    <value>Tartalom</value>
+  </data>
+  <data name="TitleRecognition" xml:space="preserve">
+    <value>Cím Felismerés</value>
+  </data>
+  <data name="ThemeSingular" xml:space="preserve">
+    <value>Téma</value>
+  </data>
+  <data name="ThemePlural" xml:space="preserve">
+    <value>Témák</value>
+  </data>
+  <data name="TelevisionSingular" xml:space="preserve">
+    <value>TV Műsor</value>
+  </data>
+  <data name="TelevisionPlural" xml:space="preserve">
+    <value>TV Műsorok</value>
+  </data>
+  <data name="SystemData" xml:space="preserve">
+    <value>Rendszeradat</value>
+  </data>
+  <data name="TargetAlreadyExists" xml:space="preserve">
+    <value>Az adott fájl már létezik</value>
+  </data>
+  <data name="SVODPackagesRecognized" xml:space="preserve">
+    <value>Felismert SVOD csomagok</value>
+  </data>
+  <data name="STFSPackagesRecognized" xml:space="preserve">
+    <value>Felismert STFS csomagok</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>Statisztika</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Méret</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="ScanningProfile" xml:space="preserve">
+    <value>Felismerés folyamatban</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Mentés és bezárás</value>
+  </data>
+  <data name="Retry" xml:space="preserve">
+    <value>Újra</value>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>Bejelentés</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Cím átnevezése</value>
+  </data>
+  <data name="RenameFile" xml:space="preserve">
+    <value>Fájl átnevezése</value>
+  </data>
+  <data name="RenameDirectory" xml:space="preserve">
+    <value>Könyvtár átnevezése</value>
+  </data>
+  <data name="RemoveUserMessage" xml:space="preserve">
+    <value>Üzenet törlése</value>
+  </data>
+  <data name="RefreshingDirectory" xml:space="preserve">
+    <value>Könyvtár frissítése</value>
+  </data>
+  <data name="RecognizingItem" xml:space="preserve">
+    <value>{0} nevű elem vizsgálata ({1} van még hátra)</value>
+  </data>
+  <data name="RecognizeTitlesFromProfile" xml:space="preserve">
+    <value>Játékcímek felismerése a profilból</value>
+  </data>
+  <data name="RecognizedGame" xml:space="preserve">
+    <value>Felismert játék</value>
+  </data>
+  <data name="RecognizeAgain" xml:space="preserve">
+    <value>Újrafelismerés</value>
+  </data>
+  <data name="ReadFileError" xml:space="preserve">
+    <value>A fájl olvasása nem lehetséges</value>
+  </data>
+  <data name="PublisherSingular" xml:space="preserve">
+    <value>Kiadó</value>
+  </data>
+  <data name="PublisherPlural" xml:space="preserve">
+    <value>Kiadók</value>
+  </data>
+  <data name="ProfileSingular" xml:space="preserve">
+    <value>Profil adat</value>
+  </data>
+  <data name="ProfileRebuilder" xml:space="preserve">
+    <value>Profil Javító</value>
+  </data>
+  <data name="ProfilePlural" xml:space="preserve">
+    <value>Profil adatok</value>
+  </data>
+  <data name="ProfileIsInUseErrorMessage" xml:space="preserve">
+    <value>A profil jelenleg használatban van, kérlek lépj ki vele!</value>
+  </data>
+  <data name="ProfileDoesntExistErrorMessage" xml:space="preserve">
+    <value>A profil fájl nem található!</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="PopulationFailed" xml:space="preserve">
+    <value>Hiba a feladatlista összeállítása közben ({0})</value>
+  </data>
+  <data name="PodcastVideoSingular" xml:space="preserve">
+    <value>Podcast videó</value>
+  </data>
+  <data name="PodcastVideoPlural" xml:space="preserve">
+    <value>Podcast videók</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Kérlek várj...</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Jelszó</value>
+  </data>
+  <data name="PartiallyRecognizedGame" xml:space="preserve">
+    <value>Részlegesen felismert játék</value>
+  </data>
+  <data name="OptionsMenu" xml:space="preserve">
+    <value>Opciók</value>
+  </data>
+  <data name="Operation" xml:space="preserve">
+    <value>Működés</value>
+  </data>
+  <data name="OpenProfile" xml:space="preserve">
+    <value>Profil megnyitása</value>
+  </data>
+  <data name="OpeningProfile" xml:space="preserve">
+    <value>Profil megnyitása</value>
+  </data>
+  <data name="OpeningArchive" xml:space="preserve">
+    <value>Tömörített állomány megnyitása</value>
+  </data>
+  <data name="OpenFailed" xml:space="preserve">
+    <value>Megnyitás sikertelen</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OfficialGODspeedwebsite" xml:space="preserve">
+    <value>Hivatalos GODspeed weboldal</value>
+  </data>
+  <data name="OfficialGODspeedFacebookpage" xml:space="preserve">
+    <value>Hivatalos GODspeed Facebook oldal</value>
+  </data>
+  <data name="NoNewTitlesFound" xml:space="preserve">
+    <value>Új cím nem található.</value>
+  </data>
+  <data name="NoMessages" xml:space="preserve">
+    <value>Nincsenek még üzenetek.</value>
+  </data>
+  <data name="NoIWouldNotLikeToParticipate" xml:space="preserve">
+    <value>Nem, nem szeretnék résztvenni</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nem</value>
+  </data>
+  <data name="NewVersionAvailableMessage" xml:space="preserve">
+    <value>&lt;b&gt;Új verzió érhető el! ({0})&lt;/b&gt;&lt;br/&gt;Kattints ide a letöltéshez!</value>
+  </data>
+  <data name="NewTitleFoundSingular" xml:space="preserve">
+    <value>{0} új címet találtam.</value>
+  </data>
+  <data name="NewTitleFoundPlural" xml:space="preserve">
+    <value>{0} új címet találtam.</value>
+  </data>
+  <data name="NewName" xml:space="preserve">
+    <value>Új név</value>
+  </data>
+  <data name="NewFolderButton" xml:space="preserve">
+    <value>F7 Új Mappa</value>
+  </data>
+  <data name="NewConnection" xml:space="preserve">
+    <value>Új kapcsolat</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Soha</value>
+  </data>
+  <data name="NeedsRestartToApplyChanges" xml:space="preserve">
+    <value>* A beállítások véglegesítéséhez újraindítás szükséges</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="MusicVideoSingular" xml:space="preserve">
+    <value>Videoklip</value>
+  </data>
+  <data name="MusicVideoPlural" xml:space="preserve">
+    <value>Videoklipek</value>
+  </data>
+  <data name="MovieSingular" xml:space="preserve">
+    <value>Film</value>
+  </data>
+  <data name="MoviePlural" xml:space="preserve">
+    <value>Filmek</value>
+  </data>
+  <data name="MoveButton" xml:space="preserve">
+    <value>F6 Áthelyezés</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Áthelyezés</value>
+  </data>
+  <data name="Misc" xml:space="preserve">
+    <value>Egyéb</value>
+  </data>
+  <data name="MigrationProgressDialogTitle" xml:space="preserve">
+    <value>Migráció</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Üzenetek</value>
+  </data>
+  <data name="ItemTypeFile" xml:space="preserve">
+    <value>Fájl</value>
+  </data>
+  <data name="ItemTypeDrive" xml:space="preserve">
+    <value>Meghajtó</value>
+  </data>
+  <data name="ItemTypeDirectory" xml:space="preserve">
+    <value>Könyvtár</value>
+  </data>
+  <data name="ItemNotExistsOnPath" xml:space="preserve">
+    <value>Elem nem található: {0}</value>
+  </data>
+  <data name="IPAddressEmptyErrorMessage" xml:space="preserve">
+    <value>Kérlek adj meg egy IP címet!</value>
+  </data>
+  <data name="InstalledGameSingular" xml:space="preserve">
+    <value>Installált játék</value>
+  </data>
+  <data name="InstalledGamePlural" xml:space="preserve">
+    <value>Installált játékok</value>
+  </data>
+  <data name="Inject" xml:space="preserve">
+    <value>Beszúrás</value>
+  </data>
+  <data name="HelpMenu" xml:space="preserve">
+    <value>Segítség</value>
+  </data>
+  <data name="InaccessibleFileErrorMessage" xml:space="preserve">
+    <value>Hozzáférhetetlen fájl. Kérlek ellenőrizd a jogosultságokat!</value>
+  </data>
+  <data name="GameVideoSingular" xml:space="preserve">
+    <value>Játékvideó</value>
+  </data>
+  <data name="GameVideoPlural" xml:space="preserve">
+    <value>Játékvideók</value>
+  </data>
+  <data name="GameTrailerSingular" xml:space="preserve">
+    <value>Játékelőzetes</value>
+  </data>
+  <data name="GameTrailerPlural" xml:space="preserve">
+    <value>Játékelőzetesek</value>
+  </data>
+  <data name="GamesRecognizedPartially" xml:space="preserve">
+    <value>Részlegesen felismert játékok</value>
+  </data>
+  <data name="GamesRecognizedFully" xml:space="preserve">
+    <value>Teljesen felismert játékok</value>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>Játékok</value>
+  </data>
+  <data name="GameOnDemandSingular" xml:space="preserve">
+    <value>GOD Tartalom</value>
+  </data>
+  <data name="GameOnDemandPlural" xml:space="preserve">
+    <value>GOD Tartalmak</value>
+  </data>
+  <data name="GameDemoSingular" xml:space="preserve">
+    <value>Játékdemó</value>
+  </data>
+  <data name="GameDemoPlural" xml:space="preserve">
+    <value>Játékdemók</value>
+  </data>
+  <data name="FTPLog" xml:space="preserve">
+    <value>FTP napló</value>
+  </data>
+  <data name="FolderName" xml:space="preserve">
+    <value>Mappa neve</value>
+  </data>
+  <data name="FolderAlreadyExists" xml:space="preserve">
+    <value>Ilyen nevű mappa már létezik! Kérlek válassz másik nevet!</value>
+  </data>
+  <data name="FileStructure" xml:space="preserve">
+    <value>Fájlstruktúra</value>
+  </data>
+  <data name="FilesMenu" xml:space="preserve">
+    <value>Fájlok</value>
+  </data>
+  <data name="Extract" xml:space="preserve">
+    <value>Kicsomagolás</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Kilépés</value>
+  </data>
+  <data name="EditButton" xml:space="preserve">
+    <value>F4 Szerkesztés</value>
+  </data>
+  <data name="DownloadableContentSingular" xml:space="preserve">
+    <value>Letölthető Tartalom</value>
+  </data>
+  <data name="DownloadableContentPlural" xml:space="preserve">
+    <value>Letölthető Tartalmak</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="DisableCustomWindowChrome" xml:space="preserve">
+    <value>Egyedi ablakkeret kikapcsolása</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Részletek</value>
+  </data>
+  <data name="DeleteButton" xml:space="preserve">
+    <value>F8 Törlés</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
+  <data name="DaySingular" xml:space="preserve">
+    <value>Nap</value>
+  </data>
+  <data name="DayPlural" xml:space="preserve">
+    <value>Nap</value>
+  </data>
+  <data name="DateTimeFormat" xml:space="preserve">
+    <value>yyyy-MM-dd HH:mm</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Dátum</value>
+  </data>
+  <data name="CopyTitleIDtoClipboard" xml:space="preserve">
+    <value>TitleID másolása Vágólapra</value>
+  </data>
+  <data name="CopyButton" xml:space="preserve">
+    <value>F5 Másolás</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Másolás</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Folytatás</value>
+  </data>
+  <data name="ContentRecognition" xml:space="preserve">
+    <value>Tartalomfelismerés</value>
+  </data>
+  <data name="Console" xml:space="preserve">
+    <value>Konzol</value>
+  </data>
+  <data name="Connections" xml:space="preserve">
+    <value>Kapcsolatok</value>
+  </data>
+  <data name="ConnectionNameExistsErrorMessage" xml:space="preserve">
+    <value>Ilyen nevű kapcsolat már létezik.</value>
+  </data>
+  <data name="ConnectionName" xml:space="preserve">
+    <value>Kapcsolat neve</value>
+  </data>
+  <data name="ConnectionLost" xml:space="preserve">
+    <value>A kapcsolat megszakadt</value>
+  </data>
+  <data name="ConnectionFailed" xml:space="preserve">
+    <value>Kapcsolat sikertelen</value>
+  </data>
+  <data name="ConnectionDetails" xml:space="preserve">
+    <value>A kapcsolat adatai</value>
+  </data>
+  <data name="ConnectingToFtp" xml:space="preserve">
+    <value>Kapcsolódás ({0})...</value>
+  </data>
+  <data name="CommunityGameSingular" xml:space="preserve">
+    <value>Közösségi játék</value>
+  </data>
+  <data name="CommunityGamePlural" xml:space="preserve">
+    <value>Közösségi játékok</value>
+  </data>
+  <data name="CommandsMenu" xml:space="preserve">
+    <value>Parancsok</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Bezárás</value>
+  </data>
+  <data name="CheckForNewerVersionOnStartup" xml:space="preserve">
+    <value>Új verzió keresése induláskor</value>
+  </data>
+  <data name="ChangingDirectory" xml:space="preserve">
+    <value>Könyvtárváltás</value>
+  </data>
+  <data name="ChangingDirectoryDataReceived" xml:space="preserve">
+    <value>Könyvtárváltás... ({0:#,0} bájt érkezett)</value>
+  </data>
+  <data name="CalculateOccupiedSpace" xml:space="preserve">
+    <value>Foglalt terület kiszámítása</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>Megjelenés</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>IP Cím</value>
+  </data>
+  <data name="UseUnity" xml:space="preserve">
+    <value>A xboxunity.net használata a játékok felismeréséhez</value>
+  </data>
+  <data name="UsePassiveMode" xml:space="preserve">
+    <value>Passzív mód</value>
+  </data>
+  <data name="UseRemoteCopy" xml:space="preserve">
+    <value>Távoli Másolás használata NAS és FTP között, ha lehetséges</value>
+  </data>
+  <data name="TotalFilesTransferred" xml:space="preserve">
+    <value>Átmásolt fájlok összesen</value>
+  </data>
+  <data name="TotalBytesTransferred" xml:space="preserve">
+    <value>Átmásolt bájtok összesen</value>
+  </data>
+  <data name="TurnOffRemoteCopyAndContinue" xml:space="preserve">
+    <value>Távoli Másolás kikapcsolása és folytatás</value>
+  </data>
+  <data name="UseRemoteCopyRemarks" xml:space="preserve">
+    <value>Ez a funkció nem minden NAS esetében támogatott. A NAS-odnak elérhetőnek kell lennie Telneten (az alapértelmezett porton), és támogatnia kell az LFTP parancsokat. Ezzel jelentős sebességnövekedést érhetsz el, ugyanakkor sajnos ezzel elveszted az azonnali másolásmegszakítás lehetőségét, várnod kell míg az adott fájl fel-, vagy letöltése befejeződik.</value>
+  </data>
+  <data name="UserStatisticsParticipationContent" xml:space="preserve">
+    <value>&lt;p&gt;&lt;b&gt;Segíts a GODspeed-et jobbá tenni!&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;A Felhasználói Statisztikában való részvétellel közvetetten segíthetsz javítani a program megbízhatóságán, teljesítményén és használhatóságán. Ha úgy döntesz, hogy részt veszel,&lt;/p&gt;
+&lt;div&gt;A GODspeed a következőket fogja rögzíteni:&lt;/div&gt;
+&lt;ul&gt;
+    &lt;li&gt;Anonim felhasználási adatok&lt;/li&gt;
+    &lt;li&gt;Nyelvi beállítások&lt;/li&gt;
+    &lt;li&gt;Rendszerinformációk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;Amiket viszont biztosan nem tesz:&lt;/div&gt;
+&lt;ul&gt;
+    &lt;li&gt;Neved, címed, más személyes adatod rögzítése&lt;/li&gt;
+    &lt;li&gt;Bármilyen illegális tevékenység bizonyítására alkalmas adat rögzítése&lt;/li&gt;
+ &lt;li&gt;A begyűjtött adatok harmadik fél számára történő kiadása&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;Bármikor dönthetsz úgy, hogy nem szeretnél tovább részt venni a statisztikában. Ez esetben keresd a &lt;i&gt;Súgó&lt;i/&gt; alatti &lt;i&gt;Részvétel a Felhasználói Statisztikában&lt;/i&gt; menüpontot, és válaszd a &lt;i&gt;Nem, nem szeretnék résztvenni&lt;/i&gt; opciót.&lt;/div&gt;</value>
+  </data>
+  <data name="ViralVideoSingular" xml:space="preserve">
+    <value>Vírusvideó</value>
+  </data>
+  <data name="ViralVideoPlural" xml:space="preserve">
+    <value>Vírusvideók</value>
+  </data>
+  <data name="WhatDoYouWantToDo" xml:space="preserve">
+    <value>Mit szeretnél tenni?</value>
+  </data>
+  <data name="CantOpenFile" xml:space="preserve">
+    <value>Nem sikerült megnyitni a következőt: {0}</value>
+  </data>
+  <data name="CantConnectToFtp" xml:space="preserve">
+    <value>Nem sikerült kapcsolódni a(z) {0} nevű FTP-hez! ({1})</value>
+  </data>
+  <data name="CannotReestablishConnection" xml:space="preserve">
+    <value>Az újrakapcsolódás sikertelen. (Hibaüzenet: {0})</value>
+  </data>
+  <data name="ClearCache" xml:space="preserve">
+    <value>Gyorsítótár ürítése</value>
+  </data>
+  <data name="CodeplexMessage" xml:space="preserve">
+    <value>&lt;b&gt;Köszönöm, hogy a GODspeed-et használod!&lt;/b&gt; Ha úgy gondolod, hogy van véleményed, amit megosztanál, kérlek értékeld az aktuális verziót CodePlex-en! Köszönöm!</value>
+  </data>
+  <data name="ConnectionLostMessage" xml:space="preserve">
+    <value>A(z) {0} nevű FTP-vel a kapcsolat megszakadt.</value>
+  </data>
+  <data name="ContinueWithIndirectCopy" xml:space="preserve">
+    <value>Folytatás normál módban</value>
+  </data>
+  <data name="CopyConfirmationPlural" xml:space="preserve">
+    <value>Biztosan át akarod másolni a kijelölt elemeket?</value>
+  </data>
+  <data name="CopyConfirmationSingular" xml:space="preserve">
+    <value>Biztosan át akarod másolni a kijelölt elemet?</value>
+  </data>
+  <data name="DeleteConfirmationPlural" xml:space="preserve">
+    <value>Biztosan le akarod törölni a kijelölt elemeket?</value>
+  </data>
+  <data name="DeleteConfirmationSingular" xml:space="preserve">
+    <value>Biztosan le akarod törölni a kijelölt elemet?</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Kapcsolat bontása</value>
+  </data>
+  <data name="DontShowThisMessageAgain" xml:space="preserve">
+    <value>Ne lássam ezt az üzenetet többet</value>
+  </data>
+  <data name="DoYouWantToReconnect" xml:space="preserve">
+    <value>Újra akarsz csatlakozni?</value>
+  </data>
+  <data name="FacebookMessage" xml:space="preserve">
+    <value>&lt;b&gt;Köszöntelek a GODspeed felhasználók között!&lt;/b&gt; Remélem tetszik, amit eddig láttál belőle és rendszeres felhasználója leszel. Ha szeretnél a későbbiekben első kézből értesülni a hírekről, szeretnéd megosztani a vele kapcsolatos ötleteidet, gondolataidat, szeretnél tagja lenni az egyre gyarapodó közösségünknek, akkor kérlek lájkold a GODspeed hivatalos oldalát Facebookon!</value>
+  </data>
+  <data name="IndetermineFtpConnectionError" xml:space="preserve">
+    <value>A kapcsolat létrehozása közben nem várt hiba történt. Próbáld meg újra és ha a hiba továbbra is fennáll, próbáld meg ki-, vagy bekapcsolni a Passzív módot is.</value>
+  </data>
+  <data name="IntegerErrorMessage" xml:space="preserve">
+    <value>Ez a mező csak egész számot tartalmazhat.</value>
+  </data>
+  <data name="InvalidateCacheIfSourceChanges" xml:space="preserve">
+    <value>A tárolt változat frissítése ha a forrásfájl változik</value>
+  </data>
+  <data name="IOError" xml:space="preserve">
+    <value>Írás-olvasási hiba</value>
+  </data>
+  <data name="IPAddressInvalidCharacterErrorMessage" xml:space="preserve">
+    <value>Az IP cím minden tagjának számnak kell lennie</value>
+  </data>
+  <data name="IPAddressOctetOutOfRangeErrorMessage" xml:space="preserve">
+    <value>Az IP cím minden tagjának 0 és 255 közötti számnak kell lennie</value>
+  </data>
+  <data name="IPAddressWrongFormatErrorMessage" xml:space="preserve">
+    <value>Egy IP címnek négy darab, pontokkal elválasztott számból kell állnia</value>
+  </data>
+  <data name="LocalFileSystemFreeSpace" xml:space="preserve">
+    <value>{0:#,0} a(z) {1:#,0} bájtból szabad</value>
+  </data>
+  <data name="MigrationProgressMessage" xml:space="preserve">
+    <value>A korábbi verzió(k) által elmentett adatokat migrálni kell. Kérlek várj, amíg ez megtörténik...</value>
+  </data>
+  <data name="MoveConfirmationPlural" xml:space="preserve">
+    <value>Biztosan át akarod helyezni a kijelölt elemeket?</value>
+  </data>
+  <data name="MoveConfirmationSingular" xml:space="preserve">
+    <value>Biztosan át akarod helyezni a kijelölt elemet?</value>
+  </data>
+  <data name="NewerDotNetVersionRequiredMessage" xml:space="preserve">
+    <value>&lt;b&gt;Warning!&lt;/b&gt; Some of the features require .NET version 4.0.30319.18408 (October 2013) or newer. Please update .NET Framework and restart GODspeed to enable those features.</value>
+  </data>
+  <data name="PartialRecognitionMessage" xml:space="preserve">
+    <value>&lt;b&gt;Egy vagy több játékot nem sikerült felismerni teljesen.&lt;/b&gt; Ha játszottál már ezekkel korábban, akkor a profilodból kinyerhetőek a szükséges adatok. Csak kattints rá jobb egérgombbal és válaszd a &lt;i&gt;Játékcímek felismerése a profilból&lt;/i&gt; menüpontot.</value>
+  </data>
+  <data name="ParticipationMessage" xml:space="preserve">
+    <value>&lt;b&gt;Segíts jobbá tenni a GODspeed-et!&lt;/b&gt; Kattints a Felhasználói Statisztikában való részvétel engedélyezéséhez.</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Szünet</value>
+  </data>
+  <data name="Abort" xml:space="preserve">
+    <value>Megszakítás</value>
+  </data>
+  <data name="AnonymousLogin" xml:space="preserve">
+    <value>Név nélküli bejelentkezés</value>
+  </data>
+  <data name="ApplicationIsBusy" xml:space="preserve">
+    <value>Az alkalmazás dolgozik</value>
+  </data>
+  <data name="ApplicationStarted" xml:space="preserve">
+    <value>Az alkalmazás elindításainak száma</value>
+  </data>
+  <data name="ApplicationCrashed" xml:space="preserve">
+    <value>Az alkalmazás összeomlásainak száma</value>
+  </data>
+  <data name="RemoteCopySpecialCharsWarningMessage" xml:space="preserve">
+    <value>A Távoli Másolás nem használható olyan fájlok esetében, amiknek elérési útvonalában speciális - nem ASCII - karakterek találhatóak. Ezért ezek a fájlok automatikusan a normál módszer szerint kerültek átmásolásra.</value>
+  </data>
+  <data name="RemoveUserMessageConfirmation" xml:space="preserve">
+    <value>Biztosan nem akarod többet megkapni ezt az üzenetet?</value>
+  </data>
+  <data name="ResumeIsNotAvailableConfirmation" xml:space="preserve">
+    <value>Az adott FTP nem támogatja a fájlok folytatásának lehetőségét. Biztosan meg akarod szakítani a másolást?</value>
+  </data>
+  <data name="SearchGoogle" xml:space="preserve">
+    <value>TitleID keresése Google-lel</value>
+  </data>
+  <data name="SessionInitiationFailed" xml:space="preserve">
+    <value>Kapcsolat létrehozása sikertelen</value>
+  </data>
+  <data name="SaveThumbnailAs" xml:space="preserve">
+    <value>Miniatűr mentése fájlba...</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Névjegy</value>
+  </data>
+  <data name="SizeInfo" xml:space="preserve">
+    <value>{0:#,0} / {1:#,0} bájt - {2} / {3:fájl;fájl}, {4} / {5:mappa;mappa}</value>
+  </data>
+  <data name="DriveChangeFailed" xml:space="preserve">
+    <value>Sikertelen meghajtó váltás</value>
+  </data>
+  <data name="DriveIsNotAccessible" xml:space="preserve">
+    <value>A {0} meghajtó nem elérhető.</value>
+  </data>
+  <data name="ReparsePointCannotBeResolved" xml:space="preserve">
+    <value>A csatlakozási pontot nem sikerült feloldani.</value>
+  </data>
+  <data name="ReparsePointCannotBeAccessed" xml:space="preserve">
+    <value>A csatlakozási ponthoz nem lehet hozzáférni. Próbáld meg rendszergazdaként indítani a programot, vagy kapcsold ki a Felhasználói fiókok felügyeletét (UAC).</value>
+  </data>
+  <data name="CannotCreateFolderWithNoName" xml:space="preserve">
+    <value>Név nélküli mappát nem lehet létrehozni!</value>
+  </data>
+  <data name="CannotCreateFolderWithInvalidCharacters" xml:space="preserve">
+    <value>A mappa neve nem tartalmazhat illegális karaktereket!</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Nyelv</value>
+  </data>
+  <data name="RepairProfile" xml:space="preserve">
+    <value>Profil javítása</value>
+  </data>
+  <data name="PEC" xml:space="preserve">
+    <value>PEC</value>
+  </data>
+  <data name="ItemTypeLink" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="FsdContentScanTriggerDisabled" xml:space="preserve">
+    <value>Kikapcsolva</value>
+  </data>
+  <data name="FsdContentScanTriggerAfterUpload" xml:space="preserve">
+    <value>Feltöltés után</value>
+  </data>
+  <data name="FsdContentScanTriggerAfterConnectionClose" xml:space="preserve">
+    <value>Kapcsolatbontás után</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="DisableFsdContentScanTriggerTitle" xml:space="preserve">
+    <value>Automatikus FSD/F3 tartalomfrissítés kikapcsolása</value>
+  </data>
+  <data name="DisableFsdContentScanTriggerMessage" xml:space="preserve">
+    <value>Az FSD/F3 webszerverét nem sikerült elérni. Anélkül az automatikus FSD/F3 tartalomfrissítés nem tud működni. Ki szeretnéd kapcsolni ezt a funkciót?</value>
+  </data>
+  <data name="DisableOptionNone" xml:space="preserve">
+    <value>Nem</value>
+  </data>
+  <data name="DisableOptionSingle" xml:space="preserve">
+    <value>Csak ennél a kapcsolatnál</value>
+  </data>
+  <data name="DisableOptionAll" xml:space="preserve">
+    <value>Minden kapcsolatnál</value>
+  </data>
+  <data name="FtpHashVerificationFailed" xml:space="preserve">
+    <value>Hibás feltöltés. Lehet, hogy elfogyott a hely?</value>
+  </data>
+  <data name="SpecialCharactersNotSupported" xml:space="preserve">
+    <value>A speciális karakterek használata ezen az FTP szerveren nem támogatott!</value>
+  </data>
+  <data name="FsdContentScanTrigger" xml:space="preserve">
+    <value>Automatikus FSD/F3 tartalomfrissítés</value>
+  </data>
+  <data name="ContentScanFailedErrorMessage" xml:space="preserve">
+    <value>Tartalomfrissítés sikertelen. Kérlek frissítsd a játéklistádat manuálisan!</value>
+  </data>
+  <data name="SystemError" xml:space="preserve">
+    <value>Rendszerhiba</value>
+  </data>
+  <data name="UrlCannotBeOpened" xml:space="preserve">
+    <value>A hivatkozást nem lehet megnyitni. (Hiba: {0})</value>
+  </data>
+  <data name="RememberPassword" xml:space="preserve">
+    <value>Jelszó mentése</value>
+  </data>
+  <data name="LaunchGame" xml:space="preserve">
+    <value>Játék elindítása</value>
+  </data>
+  <data name="LaunchXex" xml:space="preserve">
+    <value>Alkalmazás elindítása</value>
+  </data>
+  <data name="GettingData" xml:space="preserve">
+    <value>Adatok betöltése</value>
+  </data>
+  <data name="Checking" xml:space="preserve">
+    <value>Ellenőrzés</value>
+  </data>
+  <data name="TheFollowingGamesAreMissing" xml:space="preserve">
+    <value>Az alábbi játékok már hiányoznak az Xboxodról, töröld őket az FSD/F3 adatbázisából!</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Útvonal</value>
+  </data>
+  <data name="ErrorsInFreestyleDatabase" xml:space="preserve">
+    <value>Hibák az FSD/F3 adatbázisában</value>
+  </data>
+  <data name="VerifyFileHashAfterFtpUploadRemarks" xml:space="preserve">
+    <value>Ez a művelet meglehetősen időigényes és csak az FSD/F3 támogatja. Az általa használt algoritmus kb. 18 megabájtot képes leellenőrizni másodpercenként.</value>
+  </data>
+  <data name="Verifying" xml:space="preserve">
+    <value>Ellenőrzés</value>
+  </data>
+  <data name="VerifyFileHashAfterFtpUpload" xml:space="preserve">
+    <value>CRC ellenőrzés feltöltés után</value>
+  </data>
+  <data name="FtpTraceWindowTitle" xml:space="preserve">
+    <value>{0} FTP logja</value>
+  </data>
+  <data name="ShowFtpLog" xml:space="preserve">
+    <value>FTP naplófájl megjelenítése</value>
+  </data>
+  <data name="NoErrorsInFreestyleDatabase" xml:space="preserve">
+    <value>Nincs hiba az FSD/F3 adatbázisában</value>
+  </data>
+  <data name="FreestyleDatabaseCheck" xml:space="preserve">
+    <value>Adatbázis ellenőrzés</value>
+  </data>
+  <data name="TheFollowingGamesMightHaveLeftovers" xml:space="preserve">
+    <value>Az alábbi tartalmak nem tartoznak egyik FSD/F3 adatbázis-bejegyzéshez sem. Ellenőrizd, hogy jogosan foglalják-e a helyet vagy csak korábbi játékeltávolítások során maradtak-e ott.</value>
+  </data>
+  <data name="MissingGames" xml:space="preserve">
+    <value>Hiányzó játékok</value>
+  </data>
+  <data name="PossibleLeftovers" xml:space="preserve">
+    <value>Lehetséges szemetek</value>
+  </data>
+  <data name="UseDefault" xml:space="preserve">
+    <value>Alapértelmezett</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Alapértelmezett</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Megváltoztat</value>
+  </data>
+  <data name="SetCredentials" xml:space="preserve">
+    <value>Belépési adatok megadása</value>
+  </data>
+  <data name="Xbox360TitlePlural" xml:space="preserve">
+    <value>Xbox360 Címek</value>
+  </data>
+  <data name="Xbox360TitleSingular" xml:space="preserve">
+    <value>Xbox360 Cím</value>
+  </data>
+  <data name="XboxDownloadPlural" xml:space="preserve">
+    <value>Xbox Letöltések</value>
+  </data>
+  <data name="XboxDownloadSingular" xml:space="preserve">
+    <value>Xbox Letöltés</value>
+  </data>
+  <data name="XboxOriginalGamePlural" xml:space="preserve">
+    <value>Xbox Eredeti Játékok</value>
+  </data>
+  <data name="XboxOriginalGameSingular" xml:space="preserve">
+    <value>Xbox Eredeti Játék</value>
+  </data>
+  <data name="XboxSavedGamePlural" xml:space="preserve">
+    <value>Xbox Kimentett állások</value>
+  </data>
+  <data name="XboxSavedGameSingular" xml:space="preserve">
+    <value>Xbox Kimentett állás</value>
+  </data>
+  <data name="VerifyFileHash" xml:space="preserve">
+    <value>CRC ellenőrzés</value>
+  </data>
+  <data name="ShutdownPc" xml:space="preserve">
+    <value>Számítógép kikapcsolása ha kész</value>
+  </data>
+  <data name="ShutdownXbox" xml:space="preserve">
+    <value>{0} kikapcsolása ha kész</value>
+  </data>
+  <data name="StorageDownloadPlural" xml:space="preserve">
+    <value>Letöltések</value>
+  </data>
+  <data name="StorageDownloadSingular" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="SavedGamePlural" xml:space="preserve">
+    <value>Kimentett állások</value>
+  </data>
+  <data name="SavedGameSingular" xml:space="preserve">
+    <value>Kimentett állás</value>
+  </data>
+  <data name="LoginToFreestyleDashHttpServer" xml:space="preserve">
+    <value>A Freestyle Dash HTTP szerverének eléréséhez azonosítás szükséges. Kérlek add meg az ehhez használt nevet és jelszót:</value>
+  </data>
+  <data name="LicenseStorePlural" xml:space="preserve">
+    <value>Licensz-tárolók</value>
+  </data>
+  <data name="LicenseStoreSingular" xml:space="preserve">
+    <value>Licensz-tároló</value>
+  </data>
+  <data name="IptvPauseBufferPlural" xml:space="preserve">
+    <value>IPTV Pufferek</value>
+  </data>
+  <data name="IptvPauseBufferSingular" xml:space="preserve">
+    <value>IPTV Puffer</value>
+  </data>
+  <data name="GamerPicturePlural" xml:space="preserve">
+    <value>Gamer Picture-ök</value>
+  </data>
+  <data name="GamerTitlePlural" xml:space="preserve">
+    <value>Titulusok</value>
+  </data>
+  <data name="GamerTitleSingular" xml:space="preserve">
+    <value>Titulus</value>
+  </data>
+  <data name="GamerPictureSingular" xml:space="preserve">
+    <value>Gamer Picture</value>
+  </data>
+  <data name="EmptyFieldErrorMessage" xml:space="preserve">
+    <value>Ez a mező nem maradhat üresen</value>
+  </data>
+  <data name="AvatarAssetPackPlural" xml:space="preserve">
+    <value>Avatar kiegészítők</value>
+  </data>
+  <data name="AvatarAssetPackSingular" xml:space="preserve">
+    <value>Avatar kiegészítő</value>
+  </data>
+  <data name="AvatarEditor" xml:space="preserve">
+    <value>Avatar szerkesztő</value>
+  </data>
+  <data name="AvatarItemPlural" xml:space="preserve">
+    <value>Avatar kiegészítők</value>
+  </data>
+  <data name="AvatarItemSingular" xml:space="preserve">
+    <value>Avatar kiegészítő</value>
+  </data>
+  <data name="CacheFilePlural" xml:space="preserve">
+    <value>Gyorsítótár-fájlok</value>
+  </data>
+  <data name="CacheFileSingular" xml:space="preserve">
+    <value>Gyorsítótár-fájl</value>
+  </data>
+  <data name="CacheExpiration" xml:space="preserve">
+    <value>Gyorsítótár elemeinek lejárati ideje</value>
+  </data>
+  <data name="LoginAs" xml:space="preserve">
+    <value>Belépés mint:</value>
+  </data>
+  <data name="SelectTheItemsYouWantToRemove" xml:space="preserve">
+    <value>Jelöld ki az eltávolítandó elemeket</value>
+  </data>
+  <data name="CreditsContent" xml:space="preserve">
+    <value>&lt;p&gt;&lt;b&gt;Készítők:&lt;/b&gt;&lt;br/&gt;Fejlesztő: mercenary&lt;br/&gt;Vezető tesztelő: mousetwentytwo&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Honlap:&lt;/b&gt;&lt;br/&gt;&lt;a href="http://godspeed.codeplex.com" target="_blank"&gt;http://godspeed.codeplex.com&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="AddNewFolder" xml:space="preserve">
+    <value>Új Mappa létrehozása</value>
+  </data>
+  <data name="LicenseContent" xml:space="preserve">
+    <value>&lt;p&gt;Ez a program szabad szoftver; terjeszthető illetve módosítható a Free Software Foundation által kiadott GNU General Public License dokumentumában leírtak; akár a licenc 2-es, akár (tetszőleges) későbbi változata szerint.&lt;/p&gt;
+&lt;p&gt;Ez a program abban a reményben kerül közreadásra, hogy hasznos lesz, de minden egyéb GARANCIA NÉLKÜL, az ELADHATÓSÁGRA vagy VALAMELY CÉLRA VALÓ ALKALMAZHATÓSÁGRA való származtatott garanciát is beleértve. További részleteket a GNU General Public License tartalmaz.&lt;/p&gt;
+&lt;p&gt;A felhasználónak a programmal együtt meg kell kapnia a GNU General Public License egy példányát; ha mégsem kapta meg, akkor tekintse meg a &lt;a href="http://www.gnu.org/licenses/"&gt;http://www.gnu.org/licenses/&lt;/a&gt; oldalon.</value>
+  </data>
+  <data name="DeleteEsentConfirmationMessage" xml:space="preserve">
+    <value>A migráció elkészült.
+Le akarod törölni a régi verzióhoz tartozó adatokat?</value>
+  </data>
+  <data name="UnableToLaunchGame" xml:space="preserve">
+    <value>A játékot nem sikerült elindítani. (Hibakód: {0} - {1})</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Tisztogatás</value>
+  </data>
+  <data name="LaunchXexConfirmation" xml:space="preserve">
+    <value>Biztos el szeretnéd indítani az alkalmazást?
+Ha igen, az FTP kapcsolat automatikusan kerül.</value>
+  </data>
+  <data name="FsdMenu" xml:space="preserve">
+    <value>FSD/F3</value>
+  </data>
+  <data name="Shutdown" xml:space="preserve">
+    <value>Kikapcsolás</value>
+  </data>
+  <data name="ShutdownConfirmation" xml:space="preserve">
+    <value>Biztos ki szeretnéd kapcsolni a(z) {0} nevű Xboxot?</value>
+  </data>
+  <data name="FsdContentScan" xml:space="preserve">
+    <value>FSD/F3 tartalomfrissítés</value>
+  </data>
+  <data name="OpenWebUI" xml:space="preserve">
+    <value>WebUI megnyitása</value>
+  </data>
+  <data name="StartContentScan" xml:space="preserve">
+    <value>Tartalomfrissítés indítása</value>
+  </data>
+  <data name="ShutdownDialogCaption" xml:space="preserve">
+    <value>Biztos hogy ki szeretnéd kapcsolni {0}?</value>
+  </data>
+  <data name="ShutdownDialogMessage" xml:space="preserve">
+    <value>Ha nem csinálsz semmit, {0} {1} másodpercen belül automatikusan ki fog kapcsolni.</value>
+  </data>
+  <data name="ShutdownDialogOptionNow" xml:space="preserve">
+    <value>Kikapcsolás most</value>
+  </data>
+  <data name="ShutdownDialogOptionPCOnly" xml:space="preserve">
+    <value>Csak a számítógépet</value>
+  </data>
+  <data name="ShutdownDialogOptionXboxOnly" xml:space="preserve">
+    <value>Csak az Xboxot</value>
+  </data>
+  <data name="ShutdownDialogModeComputer" xml:space="preserve">
+    <value>a számítógéped</value>
+  </data>
+  <data name="ShutdownDialogModeXbox" xml:space="preserve">
+    <value>az Xboxod</value>
+  </data>
+  <data name="ShutdownDialogModeComputerAndXbox" xml:space="preserve">
+    <value>a számítógéped és az Xboxod</value>
+  </data>
+  <data name="TheDirectoryIsNotEmpty" xml:space="preserve">
+    <value>A(z) {0} könyvtár nem üres!</value>
+  </data>
+  <data name="DoYouWantToDeleteItWithAll" xml:space="preserve">
+    <value>Biztos le szeretnéd törölni, annak minden fájljával és alkönyvtárával együtt?</value>
+  </data>
+  <data name="DeleteAll" xml:space="preserve">
+    <value>Mindet töröl</value>
+  </data>
+  <data name="GameDeletionMessage" xml:space="preserve">
+    <value>&lt;b&gt;Letöröltél egy játékot, ami lehet, hogy az FSD/F3 adatbázisában is szerepel.&lt;/b&gt; Mivel ezeket az FSD/F3 nem tudta detektálni, a későbbi problémák elkerülése végett ajánlott kézzel eltávolítani az adatbázisból. Használd a GODspeed Adatbázis Ellenőrző modulját a hibás bejegyzések megtalálásához!</value>
+  </data>
+  <data name="DisableNotificationSound" xml:space="preserve">
+    <value>Hangjelzés kikapcsolása</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>szabad</value>
+  </data>
+  <data name="NotEnoughFreeSpaceOnTargetDevice" xml:space="preserve">
+    <value>Az adott eszközön nincs elég szabad hely a fájlok átmásolásához.</value>
+  </data>
+  <data name="UnknownSingular" xml:space="preserve">
+    <value>Ismeretlen</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Cím</value>
+  </data>
+  <data name="InvalidFileName" xml:space="preserve">
+    <value>Érvénytelen fájlnév</value>
+  </data>
+  <data name="SourceFile" xml:space="preserve">
+    <value>Forrásfájl</value>
+  </data>
+  <data name="NameIsTooLong" xml:space="preserve">
+    <value>Xboxon a fájl-, és mappanevek hossza nem haladhatja meg a 42 karaktert!</value>
+  </data>
+  <data name="PathIsTooLong" xml:space="preserve">
+    <value>Xboxon az útvonalak hossza nem haladhatja meg a 240 karaktert!</value>
+  </data>
+  <data name="InvalidTargetPath" xml:space="preserve">
+    <value>Érvénytelen útvonal</value>
+  </data>
+  <data name="PathNotFound" xml:space="preserve">
+    <value>Útvonal nem található</value>
+  </data>
+  <data name="DriveNotFound" xml:space="preserve">
+    <value>Meghajtó nem található</value>
+  </data>
+  <data name="PathIsNotAccessible" xml:space="preserve">
+    <value>Útvonal nem elérhető</value>
+  </data>
+  <data name="TitleTypeContentLong" xml:space="preserve">
+    <value>Tartalom</value>
+  </data>
+  <data name="TitleTypeDataFileLong" xml:space="preserve">
+    <value>Adatfájl</value>
+  </data>
+  <data name="TitleTypeGameLong" xml:space="preserve">
+    <value>Játék</value>
+  </data>
+  <data name="TitleTypeProfileLong" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="TitleTypeSystemDirLong" xml:space="preserve">
+    <value>Rendszermappa</value>
+  </data>
+  <data name="TitleTypeSystemFileLong" xml:space="preserve">
+    <value>Rendszerfájl</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>Nézet</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Rendezés</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="SmallIcons" xml:space="preserve">
+    <value>Kis ikonok</value>
+  </data>
+  <data name="LargeIcons" xml:space="preserve">
+    <value>Nagy ikonok</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Növekvő</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Csökkenő</value>
+  </data>
+  <data name="ViewMenu" xml:space="preserve">
+    <value>Nézet</value>
+  </data>
+  <data name="DisableFsdStatusPolling" xml:space="preserve">
+    <value>FSD/F3 státuszfigyelés kikapcsolása</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Jelszó szükséges</value>
+  </data>
+  <data name="PleaseEnterAPassword" xml:space="preserve">
+    <value>Kérlek add meg a fájlhoz tartozó jelszót:</value>
+  </data>
+  <data name="LockedProfileCopyMessage" xml:space="preserve">
+    <value>&lt;b&gt;Megpróbáltál egy vagy több olyan profilt átmásolni, amikkel éppen be vagy jelentkezve az Xboxon. A GODspeed nem tud ezekhez a fájlokhoz hozzáférni, ezért automatikusan kihagyta őket.&lt;/b&gt;</value>
+  </data>
+  <data name="RemoveCurrentDir" xml:space="preserve">
+    <value>Aktuális könyvtár eltávolítása a kedvencek közül</value>
+  </data>
+  <data name="AddCurrentDir" xml:space="preserve">
+    <value>Aktuális könyvtár hozzáadása a kedvencekhez</value>
+  </data>
+  <data name="Favorites" xml:space="preserve">
+    <value>Kedvencek</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="CannotCreateFavoriteWithNoName" xml:space="preserve">
+    <value>Név nélküli kedvencet nem lehet elmenteni!</value>
+  </data>
+  <data name="FavoriteWithNameAlreadyExists" xml:space="preserve">
+    <value>Ilyen nevű kedvenc már létezik.</value>
+  </data>
+  <data name="DoYouWantToRemoveItFromTheFavorites" xml:space="preserve">
+    <value>El szeretnéd távolítani a kedvencek közül?</value>
+  </data>
+  <data name="FreestyleDatabaseIsEmpty" xml:space="preserve">
+    <value>Az FSD/F3 adatbázisa üresnek tűnik, ezért az analyzis nem hajtható végre.</value>
+  </data>
+  <data name="OpeningIso" xml:space="preserve">
+    <value>ISO képfájl megnyitása</value>
+  </data>
+  <data name="StartingIsoConversion" xml:space="preserve">
+    <value>A konvertálás megkezdése</value>
+  </data>
+  <data name="IsoToGodConversion" xml:space="preserve">
+    <value>ISO képfájl GOD formátummá alakítása</value>
+  </data>
+  <data name="ConvertToGod" xml:space="preserve">
+    <value>GOD formátummá alakítás</value>
+  </data>
+  <data name="WritingPart" xml:space="preserve">
+    <value>Adatfájl generálása {0}/{1}</value>
+  </data>
+  <data name="CalculatingMasterHashTablechain" xml:space="preserve">
+    <value>Hashtáblalánc generálása</value>
+  </data>
+  <data name="CreatingHeaderFile" xml:space="preserve">
+    <value>Fejlécfájl generálása</value>
+  </data>
+  <data name="Disc" xml:space="preserve">
+    <value>Lemez</value>
+  </data>
+  <data name="TitleDetails" xml:space="preserve">
+    <value>Részletek</value>
+  </data>
+  <data name="Output" xml:space="preserve">
+    <value>Kimenet</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Tallózás</value>
+  </data>
+  <data name="IsoRebuildTypeNone" xml:space="preserve">
+    <value>Nincs</value>
+  </data>
+  <data name="IsoRebuildTypePartial" xml:space="preserve">
+    <value>Részleges (Levágott ISO)</value>
+  </data>
+  <data name="IsoRebuildTypeFull" xml:space="preserve">
+    <value>Teljes (Újraépített ISO)</value>
+  </data>
+  <data name="StartConversion" xml:space="preserve">
+    <value>Konvertálás megkezdése</value>
+  </data>
+  <data name="NewTitle" xml:space="preserve">
+    <value>Új cím</value>
+  </data>
+  <data name="Bytes" xml:space="preserve">
+    <value> bájt</value>
+  </data>
+  <data name="AutoUpdateDialogTitle" xml:space="preserve">
+    <value>GODspeed Updater</value>
+  </data>
+  <data name="UpdateErrorOccurred" xml:space="preserve">
+    <value>A frissítés közben váratlan hiba történt. Kérlek próbáld meg később, és ha a hiba még mindig fennáll, jelentsd be a rendelkezésre álló gombbal!</value>
+  </data>
+  <data name="OutputLocation" xml:space="preserve">
+    <value>Kimenet helye</value>
+  </data>
+  <data name="PaddingRemoval" xml:space="preserve">
+    <value>Helykitöltés eltávolítása</value>
+  </data>
+  <data name="RebuiltIsoLocation" xml:space="preserve">
+    <value>Újraépített ISO helye</value>
+  </data>
+  <data name="SaveRebuiltIsoImage" xml:space="preserve">
+    <value>Újraépített ISO megtartása</value>
+  </data>
+  <data name="SkipSystemUpdate" xml:space="preserve">
+    <value>$SystemUpdate könyvtár kihagyása</value>
+  </data>
+  <data name="PartialIsoRebuildIsNotSupportedYet" xml:space="preserve">
+    <value>A részleges ISO újraépítés ebben a verzióban nem támogatott!</value>
+  </data>
+</root>

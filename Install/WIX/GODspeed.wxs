@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" xmlns:fire="http://schemas.microsoft.com/wix/FirewallExtension">
+
+	<!--
+		Add config (Path of source files - written by build cmd)
+	-->
+	<?include "config.wxi"?>
+	
+	<!--
+		Define Product with upgrade code also. (Version is overridden from outside based on the assembly version)
+	-->
+    <Product Id="$(var.MainGuid)" Name="GODspeed" Language="1033" Version="$(var.ProductVersion)" Manufacturer="Neurotoxin" UpgradeCode="6A1E7BBF-EF4C-4342-B7BB-4991F88F8011">
+	
+		<!--
+			List files into package :)
+		-->
+		<Package Description="GODspeed package" Comments="GODspeed" InstallerVersion="200" Compressed="yes" />
+        <Media Id="1" Cabinet="GODspeed.cab" EmbedCab="yes" />
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder" Name="INSTALLDIR">
+                <Directory Id="GODSPEED" Name="GODspeed">
+                    <Component Id="CASTLE.CORE.DLL" DiskId="1" Guid="99CFD54E-A3D5-440C-9FC6-4CD02A8B104E">
+                        <File Id="CASTLE.CORE.DLL" Name="Castle.Core.dll" Source="$(var.SourceDir)Castle.Core.dll" />
+                    </Component>
+                    <Component Id="ESENT.COLLECTIONS.DLL" DiskId="1" Guid="C889E43D-8E45-4B73-B632-F4361345518C">
+                        <File Id="ESENT.COLLECTIONS.DLL" Name="Esent.Collections.dll" Source="$(var.SourceDir)Esent.Collections.dll" />
+                    </Component>
+                    <Component Id="ESENT.INTEROP.DLL" DiskId="1" Guid="EC291105-95C1-4C40-B4FE-8CAA85937530">
+                        <File Id="ESENT.INTEROP.DLL" Name="Esent.Interop.dll" Source="$(var.SourceDir)Esent.Interop.dll" />
+                    </Component>
+                    <Component Id="FIZZLER.DLL" DiskId="1" Guid="18F97820-E9A3-4F90-BCAA-B868E9797A86">
+                        <File Id="FIZZLER.DLL" Name="Fizzler.dll" Source="$(var.SourceDir)Fizzler.dll" />
+                    </Component>
+                    <Component Id="FIZZLER.SYSTEMS.HTMLAGILITYPACK.DLL" DiskId="1" Guid="E2C5F3C1-CB09-4CFF-8402-E0B6C0C2185E">
+                        <File Id="FIZZLER.SYSTEMS.HTMLAGILITYPACK.DLL" Name="Fizzler.Systems.HtmlAgilityPack.dll" Source="$(var.SourceDir)Fizzler.Systems.HtmlAgilityPack.dll" />
+                    </Component>
+                    <Component Id="HTMLAGILITYPACK.DLL" DiskId="1" Guid="588D2705-C72F-4395-BD37-9B95B804FE33">
+                        <File Id="HTMLAGILITYPACK.DLL" Name="HtmlAgilityPack.dll" Source="$(var.SourceDir)HtmlAgilityPack.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.PRACTICES.COMPOSITE.DLL" DiskId="1" Guid="6FA92469-151B-4878-9CCF-D337BB03D581">
+                        <File Id="MICROSOFT.PRACTICES.COMPOSITE.DLL" Name="Microsoft.Practices.Composite.dll" Source="$(var.SourceDir)Microsoft.Practices.Composite.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.PRACTICES.COMPOSITE.PRESENTATION.DLL" DiskId="1" Guid="392C5574-F1EF-485D-AA19-3CB564662497">
+                        <File Id="MICROSOFT.PRACTICES.COMPOSITE.PRESENTATION.DLL" Name="Microsoft.Practices.Composite.Presentation.dll" Source="$(var.SourceDir)Microsoft.Practices.Composite.Presentation.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.PRACTICES.COMPOSITE.UNITYEXTENSIONS.DLL" DiskId="1" Guid="A9E0E695-2D37-4FAD-9A98-FDE4ACC4E97F">
+                        <File Id="MICROSOFT.PRACTICES.COMPOSITE.UNITYEXTENSIONS.DLL" Name="Microsoft.Practices.Composite.UnityExtensions.dll" Source="$(var.SourceDir)Microsoft.Practices.Composite.UnityExtensions.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.PRACTICES.SERVICELOCATION.DLL" DiskId="1" Guid="2864ABA5-402F-4B9B-9656-AED770D60C27">
+                        <File Id="MICROSOFT.PRACTICES.SERVICELOCATION.DLL" Name="Microsoft.Practices.ServiceLocation.dll" Source="$(var.SourceDir)Microsoft.Practices.ServiceLocation.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.PRACTICES.UNITY.DLL" DiskId="1" Guid="1A418162-FC3F-4C5F-9831-990E8BC89F14">
+                        <File Id="MICROSOFT.PRACTICES.UNITY.DLL" Name="Microsoft.Practices.Unity.dll" Source="$(var.SourceDir)Microsoft.Practices.Unity.dll" />
+                    </Component>
+                    <Component Id="MICROSOFT.WINDOWS.SHELL.DLL" DiskId="1" Guid="B181A83B-DF30-46DA-A0AB-FEF553E9DC67">
+                        <File Id="MICROSOFT.WINDOWS.SHELL.DLL" Name="Microsoft.Windows.Shell.dll" Source="$(var.SourceDir)Microsoft.Windows.Shell.dll" />
+                    </Component>
+                    <Component Id="NEUROTOXIN.GODSPEED.CORE.DLL" DiskId="1" Guid="B9CA1DEC-8FF4-495C-90FE-6E1FD86DE76B">
+                        <File Id="NEUROTOXIN.GODSPEED.CORE.DLL" Name="Neurotoxin.Godspeed.Core.dll" Source="$(var.SourceDir)Neurotoxin.Godspeed.Core.dll" />
+                    </Component>
+                    <Component Id="NEUROTOXIN.GODSPEED.PRESENTATION.DLL" DiskId="1" Guid="11E9A89A-AC61-41D1-96A5-28F5397852BE">
+                        <File Id="NEUROTOXIN.GODSPEED.PRESENTATION.DLL" Name="Neurotoxin.Godspeed.Presentation.dll" Source="$(var.SourceDir)Neurotoxin.Godspeed.Presentation.dll" />
+                    </Component>
+                    <Component Id="NEUROTOXIN.GODSPEED.SHELL.EXE" DiskId="1" Guid="E1F28F19-D7EB-43AB-AE7E-6CA55A08BB9D">
+                        <File Id="NEUROTOXIN.GODSPEED.SHELL.EXE" Name="Neurotoxin.Godspeed.Shell.exe" Source="$(var.SourceDir)Neurotoxin.Godspeed.Shell.exe"/>
+						<fire:FirewallException Id="FWX1" Name="GODspeed" Port="21" Protocol="tcp" Scope="any" Profile="all"/>
+						<fire:FirewallException Id="FWX2" Name="GODspeed" Port="80" Protocol="tcp" Scope="any" Profile="all"/>
+                    </Component>
+                    <Component Id="NEUROTOXIN.GODSPEED.SHELL.EXE.CONFIG" DiskId="1" Guid="8160AD1E-071E-495B-BEE2-997DA4D6D6B2">
+                        <File Id="NEUROTOXIN.GODSPEED.SHELL.EXE.CONFIG" Name="Neurotoxin.Godspeed.Shell.exe.config" Source="$(var.SourceDir)Neurotoxin.Godspeed.Shell.exe.config" />
+                    </Component>
+                    <Component Id="SERVICESTACK.COMMON.DLL" DiskId="1" Guid="14979A41-6B89-4699-8214-7E98CF06CC33">
+                        <File Id="SERVICESTACK.COMMON.DLL" Name="ServiceStack.Common.dll" Source="$(var.SourceDir)ServiceStack.Common.dll" />
+                    </Component>
+                    <Component Id="SERVICESTACK.INTERFACES.DLL" DiskId="1" Guid="6750C7D8-997A-4511-A4AF-EC0D6B50EFF0">
+                        <File Id="SERVICESTACK.INTERFACES.DLL" Name="ServiceStack.Interfaces.dll" Source="$(var.SourceDir)ServiceStack.Interfaces.dll" />
+                    </Component>
+                    <Component Id="SERVICESTACK.ORMLITE.DLL" DiskId="1" Guid="41E4D8BC-D2A7-4907-9E60-5C197111757C">
+                        <File Id="SERVICESTACK.ORMLITE.DLL" Name="ServiceStack.OrmLite.dll" Source="$(var.SourceDir)ServiceStack.OrmLite.dll" />
+                    </Component>
+                    <Component Id="SERVICESTACK.ORMLITE.SQLITE.WINDOWS.DLL" DiskId="1" Guid="F9A1FE1F-B4AF-45AE-A46A-67A31D4084FA">
+                        <File Id="SERVICESTACK.ORMLITE.SQLITE.WINDOWS.DLL" Name="ServiceStack.OrmLite.Sqlite.Windows.dll" Source="$(var.SourceDir)ServiceStack.OrmLite.Sqlite.Windows.dll" />
+                    </Component>
+                    <Component Id="SERVICESTACK.TEXT.DLL" DiskId="1" Guid="26DAD262-6254-4EE7-AA51-3FF04996708D">
+                        <File Id="SERVICESTACK.TEXT.DLL" Name="ServiceStack.Text.dll" Source="$(var.SourceDir)ServiceStack.Text.dll" />
+                    </Component>
+                    <Component Id="SHARPCOMPRESS.DLL" DiskId="1" Guid="ACD8995A-329B-4230-A068-3C0C54776F5B">
+                        <File Id="SHARPCOMPRESS.DLL" Name="SharpCompress.dll" Source="$(var.SourceDir)SharpCompress.dll" />
+                    </Component>
+                    <Component Id="SYSTEM.DATA.SQLITE.DLL" DiskId="1" Guid="7B9758FA-B369-4791-A7DF-63B629D370DE">
+                        <File Id="SYSTEM.DATA.SQLITE.DLL" Name="System.Data.SQLite.dll" Source="$(var.SourceDir)System.Data.SQLite.dll" />
+                    </Component>
+                    <Component Id="SYSTEM.WINDOWS.INTERACTIVITY.DLL" DiskId="1" Guid="3AA2A9AC-0786-49BB-B120-828EFE5D55AA">
+                        <File Id="SYSTEM.WINDOWS.INTERACTIVITY.DLL" Name="System.Windows.Interactivity.dll" Source="$(var.SourceDir)System.Windows.Interactivity.dll" />
+                    </Component>
+                    <Component Id="WPFLOCALIZEEXTENSION.DLL" DiskId="1" Guid="9096B4F5-C75A-4E34-86D1-DA4A82FF12F1">
+                        <File Id="WPFLOCALIZEEXTENSION.DLL" Name="WPFLocalizeExtension.dll" Source="$(var.SourceDir)WPFLocalizeExtension.dll" />
+                    </Component>
+                    <Component Id="XAMLMARKUPEXTENSIONS.DLL" DiskId="1" Guid="A194DECC-A606-46AE-A26A-926C2C0EB7B8">
+                        <File Id="XAMLMARKUPEXTENSIONS.DLL" Name="XAMLMarkupExtensions.dll" Source="$(var.SourceDir)XAMLMarkupExtensions.dll" />
+                    </Component>
+                    <Component Id="XCEED.WPF.TOOLKIT.DLL" DiskId="1" Guid="7694B032-310F-47EE-9757-173BF5DCF3BD">
+                        <File Id="XCEED.WPF.TOOLKIT.DLL" Name="Xceed.Wpf.Toolkit.dll" Source="$(var.SourceDir)Xceed.Wpf.Toolkit.dll" />
+                    </Component>
+                    <Directory Id="HU_HU" Name="hu-HU">
+                        <Component Id="NEUROTOXIN.GODSPEED.SHELL.RESOURCES.DLL" DiskId="1" Guid="B43C9BCF-6054-45EF-9B78-5DE65F8D0A72">
+                            <File Id="NEUROTOXIN.GODSPEED.SHELL.RESOURCES.DLL" Name="Neurotoxin.Godspeed.Shell.resources.dll" Source="$(var.SourceDir)hu-HU\Neurotoxin.Godspeed.Shell.resources.dll" />
+                        </Component>
+                    </Directory>
+                    <Directory Id="X64" Name="x64">
+                        <Component Id="SQLITE.INTEROP.DLL" DiskId="1" Guid="64DD4DF5-4216-46DE-BE03-9550565B2C89">
+                            <File Id="SQLITE.INTEROP.DLL" Name="SQLite.Interop.dll" Source="$(var.SourceDir)x64\SQLite.Interop.dll" />
+                        </Component>
+                    </Directory>
+                    <Directory Id="X86" Name="x86">
+                        <Component Id="SQLITE.INTEROP.DLL_1" DiskId="1" Guid="6F489332-EBE8-4792-83A3-92B335BB71E2">
+                            <File Id="SQLITE.INTEROP.DLL_1" Name="SQLite.Interop.dll" Source="$(var.SourceDir)x86\SQLite.Interop.dll" />
+                        </Component>
+                    </Directory>
+                </Directory>
+            </Directory>
+			<!--
+				Surplus folders
+			-->
+            <Directory Id="DesktopFolder"/>
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ProgramMenuDir" Name="GODspeed">
+				</Directory>
+            </Directory>
+			<Directory Id="CommonAppDataFolder" Name="CommonAppDataFolder">
+			  <Directory Id="MyAppCreatorFolder" Name="Neurotoxin">
+				<Directory Id="MyAppFolder" Name="GODSpeed">
+					<Directory Id="MyAppSubFolder" Name="GODSpeedNote">
+					</Directory>
+				</Directory>
+			  </Directory>
+			</Directory>
+        </Directory>
+		
+		<!--
+			Icons and extras
+		-->
+		<Property Id="ARPPRODUCTICON" Value="GODspeedIcon.exe" />
+		<Icon Id="GODspeedIcon.exe" SourceFile="$(var.SourceDir)Neurotoxin.Godspeed.Shell.exe" />
+		<!-- <WixVariable Id="WixUILicenseRtf" Value="newLicense.rtf" /> -->
+		
+		<!--
+			Check Frameworks
+		-->
+        <PropertyRef Id="NETFRAMEWORK40FULL" />
+        <PropertyRef Id="NETFRAMEWORK45" />
+        <Condition Message="This setup requires Microsoft .NET Framework 4.0 Full or 4.5 package or greater needs to be installed for this software.">
+			<![CDATA[Installed OR NETFRAMEWORK40FULL OR NETFRAMEWORK45]]>
+		</Condition>
+		
+		<!--
+			UI properties
+		-->
+		<Property Id="WIXUI_INSTALLDIR" Value="GODSPEED"/>
+		<Property Id="INSTALLDESKTOPSHORTCUT" Value="True"/>
+		<Property Id="INSTALLPROGRAMSHORTCUT" Value="True"/>
+		<Property Id="CLEANUNINSTALL" Value="True"/>
+		
+		<!--
+			CUSTOMIZING UI screens
+		-->
+		<UIRef Id="GODUI_InstallDir" />
+		<UI Id="GODUI_InstallDir">
+           <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+           <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
+           <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+
+           <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+           <Property Id="WixUI_Mode" Value="InstallDir" />
+
+           <DialogRef Id="BrowseDlg" />
+           <DialogRef Id="DiskCostDlg" />
+           <DialogRef Id="ErrorDlg" />
+           <DialogRef Id="FatalError" />
+           <DialogRef Id="FilesInUse" />
+           <DialogRef Id="MsiRMFilesInUse" />
+           <DialogRef Id="PrepareDlg" />
+           <DialogRef Id="ProgressDlg" />
+           <DialogRef Id="ResumeDlg" />
+           <DialogRef Id="UserExit" />
+           
+           <Publish Dialog="BrowseDlg" Control="OK" Event="DoAction" Value="WixUIValidatePath" Order="3">1</Publish>
+           <Publish Dialog="BrowseDlg" Control="OK" Event="SpawnDialog" Value="InvalidDirDlg" Order="4"><![CDATA[WIXUI_INSTALLDIR_VALID<>"1"]]></Publish>
+
+           <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+
+           <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="GODInstallDirDlg">NOT Installed</Publish>
+           <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg">Installed AND PATCH</Publish>
+
+           <!-- <Publish Dialog="LicenseAgreementDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
+           <Publish Dialog="LicenseAgreementDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">LicenseAccepted = "1"</Publish> -->
+
+           <Publish Dialog="GODInstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
+           <Publish Dialog="GODInstallDirDlg" Control="Next" Event="SetTargetPath" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
+           <Publish Dialog="GODInstallDirDlg" Control="Next" Event="DoAction" Value="WixUIValidatePath" Order="2">NOT WIXUI_DONTVALIDATEPATH</Publish>
+           <Publish Dialog="GODInstallDirDlg" Control="Next" Event="SpawnDialog" Value="InvalidDirDlg" Order="3"><![CDATA[NOT WIXUI_DONTVALIDATEPATH AND WIXUI_INSTALLDIR_VALID<>"1"]]></Publish>
+           <Publish Dialog="GODInstallDirDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg" Order="4">WIXUI_DONTVALIDATEPATH OR WIXUI_INSTALLDIR_VALID="1"</Publish>
+           <Publish Dialog="GODInstallDirDlg" Control="ChangeFolder" Property="_BrowseProperty" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
+           <Publish Dialog="GODInstallDirDlg" Control="ChangeFolder" Event="SpawnDialog" Value="BrowseDlg" Order="2">1</Publish>
+           
+           <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="GODInstallDirDlg" Order="1">NOT Installed</Publish>
+           <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="2">Installed AND NOT PATCH</Publish>
+           <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">Installed AND PATCH</Publish>
+
+           <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
+
+           <Publish Dialog="MaintenanceTypeDlg" Control="RepairButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+           <Publish Dialog="MaintenanceTypeDlg" Control="RemoveButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+           <Publish Dialog="MaintenanceTypeDlg" Control="Back" Event="NewDialog" Value="MaintenanceWelcomeDlg">1</Publish>
+
+           <Property Id="ARPNOMODIFY" Value="1" />
+		   
+           <Dialog Id="GODInstallDirDlg" Width="370" Height="270" Title="!(loc.InstallDirDlg_Title)">
+               <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="!(loc.WixUINext)" />
+               <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="!(loc.WixUIBack)" />
+               <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="!(loc.WixUICancel)">
+                   <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+               </Control>
+
+               <Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes" Text="!(loc.InstallDirDlgDescription)" />
+               <Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes" Text="!(loc.InstallDirDlgTitle)" />
+               <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="!(loc.InstallDirDlgBannerBitmap)" />
+               <Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
+               <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
+
+               <Control Id="FolderLabel" Type="Text" X="20" Y="60" Width="290" Height="30" NoPrefix="yes" Text="!(loc.InstallDirDlgFolderLabel)" />
+               <Control Id="Folder" Type="PathEdit" X="20" Y="100" Width="320" Height="18" Property="WIXUI_INSTALLDIR" Indirect="yes" />
+               <Control Id="ChangeFolder" Type="PushButton" X="20" Y="120" Width="56" Height="17" Text="!(loc.InstallDirDlgChange)" />
+			   
+			   <Control Id="InstallDesktopCheckbox" Type="CheckBox"  X="20" Y="140" Width="200" Height="17"  Property="INSTALLDESKTOPSHORTCUT" CheckBoxValue="1" Text="Do you want to create a desktop shortcut?" />
+			   <Control Id="InstallShortcutCheckbox" Type="CheckBox"  X="20" Y="160" Width="200" Height="17"  Property="INSTALLPROGRAMSHORTCUT" CheckBoxValue="1" Text="Do you want to create a start menu shortcut?" />
+           </Dialog>
+        </UI>
+       <UIRef Id="WixUI_Common" />
+		
+<!-- 	
+		<UI />	
+		<UIRef Id="WixUI_InstallDir" />
+ -->		
+		<!--
+			Actual feature pack to install
+		-->
+        <Feature Id="DefaultFeature" Title="Main Feature" Level="1">
+            <ComponentRef Id="CASTLE.CORE.DLL" />
+            <ComponentRef Id="ESENT.COLLECTIONS.DLL" />
+            <ComponentRef Id="ESENT.INTEROP.DLL" />
+            <ComponentRef Id="FIZZLER.DLL" />
+            <ComponentRef Id="FIZZLER.SYSTEMS.HTMLAGILITYPACK.DLL" />
+            <ComponentRef Id="HTMLAGILITYPACK.DLL" />
+            <ComponentRef Id="MICROSOFT.PRACTICES.COMPOSITE.DLL" />
+            <ComponentRef Id="MICROSOFT.PRACTICES.COMPOSITE.PRESENTATION.DLL" />
+            <ComponentRef Id="MICROSOFT.PRACTICES.COMPOSITE.UNITYEXTENSIONS.DLL" />
+            <ComponentRef Id="MICROSOFT.PRACTICES.SERVICELOCATION.DLL" />
+            <ComponentRef Id="MICROSOFT.PRACTICES.UNITY.DLL" />
+            <ComponentRef Id="MICROSOFT.WINDOWS.SHELL.DLL" />
+            <ComponentRef Id="NEUROTOXIN.GODSPEED.CORE.DLL" />
+            <ComponentRef Id="NEUROTOXIN.GODSPEED.PRESENTATION.DLL" />
+            <ComponentRef Id="NEUROTOXIN.GODSPEED.SHELL.EXE"/>
+            <ComponentRef Id="NEUROTOXIN.GODSPEED.SHELL.EXE.CONFIG" />
+            <ComponentRef Id="SERVICESTACK.COMMON.DLL" />
+            <ComponentRef Id="SERVICESTACK.INTERFACES.DLL" />
+            <ComponentRef Id="SERVICESTACK.ORMLITE.DLL" />
+            <ComponentRef Id="SERVICESTACK.ORMLITE.SQLITE.WINDOWS.DLL" />
+            <ComponentRef Id="SERVICESTACK.TEXT.DLL" />
+            <ComponentRef Id="SHARPCOMPRESS.DLL" />
+            <ComponentRef Id="SYSTEM.DATA.SQLITE.DLL" />
+            <ComponentRef Id="SYSTEM.WINDOWS.INTERACTIVITY.DLL" />
+            <ComponentRef Id="WPFLOCALIZEEXTENSION.DLL" />
+            <ComponentRef Id="XAMLMARKUPEXTENSIONS.DLL" />
+            <ComponentRef Id="XCEED.WPF.TOOLKIT.DLL" />
+            <ComponentRef Id="NEUROTOXIN.GODSPEED.SHELL.RESOURCES.DLL" />
+            <ComponentRef Id="SQLITE.INTEROP.DLL" />
+            <ComponentRef Id="SQLITE.INTEROP.DLL_1" />
+			
+			<Component Id="ApplicationShortcutDesktop" Guid="6F489332-EBE8-4792-83A3-92B335BB71E3" Directory="DesktopFolder">
+				<Condition>INSTALLDESKTOPSHORTCUT</Condition>
+				<Shortcut Id="ApplicationDesktopShortcut" Name="GODspeed" Description="GODspeed" Target="[GODSPEED]NEUROTOXIN.GODSPEED.SHELL.EXE" WorkingDirectory="GODSPEED"/>
+				<RemoveFolder Id="DesktopFolder" On="uninstall"/>
+				<RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+			</Component>
+			
+			<Component Id="StartMenuShortcuts" Guid="0DF7126E-8576-4E50-8012-746F36A58D58" Directory="ProgramMenuDir">
+				<Condition>INSTALLPROGRAMSHORTCUT</Condition>
+				<RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+				<RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" />
+				<Shortcut Id="UninstallProduct" Name="Uninstall GODspeed" Description="Uninstalls the GODspeed application" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" />
+				<Shortcut Id="ExeShortcut" Name="GODspeed" Icon="GODspeedIcon.exe" IconIndex="0" />
+				<util:InternetShortcut Id="WebsiteShortcut" Name="GODspeed on CodePlex" Target="http://godspeed.codeplex.com/" />
+			</Component>
+
+			<Component Id="RemoveAppFolderContents" DiskId="1" Guid="cc509cb7-c1a1-46cf-8c62-7cbb0017783c" Directory="MyAppFolder" > 
+			  <Condition>CLEANUNINSTALL</Condition>
+			  <RemoveFolder Id="Remove_A_Directory" On="uninstall"/> 
+			</Component> 			
+        </Feature>
+        
+        
+    </Product>
+</Wix>

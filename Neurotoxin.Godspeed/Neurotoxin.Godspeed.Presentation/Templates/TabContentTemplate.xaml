@@ -1,0 +1,30 @@
+﻿<Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:co="clr-namespace:Neurotoxin.Godspeed.Presentation.Converters;assembly=Neurotoxin.Godspeed.Presentation" 
+      Background="#FFF4F7FC">
+    <Grid.Resources>
+        <co:ScrollBarVisibilityConverter x:Key="ScrollBarVisibility"/>
+    </Grid.Resources>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <ScrollViewer>
+        <ScrollViewer.HorizontalScrollBarVisibility>
+            <MultiBinding Converter="{StaticResource ScrollBarVisibility}" ConverterParameter="Width">
+                <Binding Path="." RelativeSource="{RelativeSource Self}"/>
+                <Binding ElementName="Content"/>
+                <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}"/>
+            </MultiBinding>
+        </ScrollViewer.HorizontalScrollBarVisibility>
+        <ScrollViewer.VerticalScrollBarVisibility>
+            <MultiBinding Converter="{StaticResource ScrollBarVisibility}" ConverterParameter="Height">
+                <Binding Path="." RelativeSource="{RelativeSource Self}"/>
+                <Binding ElementName="Content"/>
+                <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}"/>
+            </MultiBinding>
+        </ScrollViewer.VerticalScrollBarVisibility>
+        <ContentControl x:Name="Content" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+    </ScrollViewer>
+    <ContentControl Grid.Row="1" x:Name="StatusBarContainer" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+</Grid>

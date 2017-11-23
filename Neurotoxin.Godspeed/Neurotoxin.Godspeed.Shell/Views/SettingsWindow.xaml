@@ -1,0 +1,187 @@
+﻿<primitives:DialogBase x:Class="Neurotoxin.Godspeed.Shell.Views.SettingsWindow" 
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                       xmlns:e="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                       xmlns:primitives="clr-namespace:Neurotoxin.Godspeed.Shell.Primitives" 
+                       xmlns:converters="clr-namespace:Neurotoxin.Godspeed.Shell.Converters"
+                       xmlns:constants="clr-namespace:Neurotoxin.Godspeed.Shell.Constants"
+                       xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                       lex:ResxLocalizationProvider.DefaultAssembly="Neurotoxin.Godspeed.Shell"
+                       lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+                       Width="420" Title="{lex:LocText Settings}">
+    <primitives:DialogBase.Resources>
+        <converters:ExpirationConverter x:Key="ExpirationConverter" />
+        <DataTemplate x:Key="ExpirationTimeSpanTemplate">
+            <TextBlock Text="{Binding Converter={StaticResource ExpirationConverter}}"></TextBlock>
+        </DataTemplate>
+    </primitives:DialogBase.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" Height="360">
+            <TabItem Header="{lex:LocText ContentRecognition}">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <CheckBox Grid.Row="0" Content="{lex:LocText UseUnity}" IsChecked="{Binding UseUnity}" Margin="0,0,0,10" x:Name="UseUnity" />
+                    
+                    <GroupBox Header="{lex:LocText CacheExpiration}"
+                         Grid.Row="1">
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="120" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="26" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="26" />
+                                <RowDefinition Height="26" />
+                                <RowDefinition Height="26" />
+                                <RowDefinition Height="26" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="26" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="{lex:LocText Profile}" VerticalAlignment="Center" />
+                            <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding ExpirationTimeSpans}"
+                                 SelectedItem="{Binding ProfileExpiration}" VerticalAlignment="Center" ItemTemplate="{StaticResource ExpirationTimeSpanTemplate}" />
+
+                            <CheckBox Grid.Row="1" Grid.ColumnSpan="2" Content="{lex:LocText InvalidateCacheIfSourceChanges}"
+                                 IsChecked="{Binding ProfileInvalidation}" Margin="0,0,0,5" />
+
+                            <TextBlock Grid.Row="2" Text="{lex:LocText RecognizedGame}" VerticalAlignment="Center" />
+                            <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ExpirationTimeSpans}"
+                                 SelectedItem="{Binding RecognizedGameExpiration}" VerticalAlignment="Center" ItemTemplate="{StaticResource ExpirationTimeSpanTemplate}" />
+                            
+                            <TextBlock Grid.Row="3" Text="{lex:LocText PartiallyRecognizedGame}" VerticalAlignment="Center" />
+                            <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding ExpirationTimeSpans}"
+                                 SelectedItem="{Binding PartiallyRecognizedGameExpiration}" VerticalAlignment="Center"
+                                 ItemTemplate="{StaticResource ExpirationTimeSpanTemplate}" IsEnabled="{Binding ElementName=UseUnity, Path=IsChecked}" />
+
+                            <TextBlock Grid.Row="4" Text="{lex:LocText UnrecognizedGame}" VerticalAlignment="Center" />
+                            <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding ExpirationTimeSpans}"
+                                 SelectedItem="{Binding UnrecognizedGameExpiration}" VerticalAlignment="Center" ItemTemplate="{StaticResource ExpirationTimeSpanTemplate}" />
+
+                            <TextBlock Grid.Row="5" Text="{lex:LocText XboxLiveContent}" VerticalAlignment="Center" />
+                            <ComboBox Grid.Row="5" Grid.Column="1" ItemsSource="{Binding ExpirationTimeSpans}"
+                                 SelectedItem="{Binding XboxLiveContentExpiration}" VerticalAlignment="Center" ItemTemplate="{StaticResource ExpirationTimeSpanTemplate}" />
+
+                            <CheckBox Grid.Row="6" Grid.ColumnSpan="2" Content="{lex:LocText InvalidateCacheIfSourceChanges}"
+                                 IsChecked="{Binding XboxLiveContentInvalidation}" Margin="0,0,0,5" />
+
+                            <TextBlock Grid.Row="7" Text="{lex:LocText UnknownContent}" VerticalAlignment="Center" />
+                            <ComboBox Grid.Row="7" Grid.Column="1" ItemsSource="{Binding ExpirationTimeSpans}"
+                                 SelectedItem="{Binding UnknownContentExpiration}" VerticalAlignment="Center" ItemTemplate="{StaticResource ExpirationTimeSpanTemplate}" />
+                        </Grid>
+                    </GroupBox>
+
+                    <StackPanel Grid.Row="2" HorizontalAlignment="Center" Margin="0,5,0,0">
+                        <Button Content="{lex:LocText ClearCache}" MinWidth="90" Height="22" Padding="10,0,10,0" Command="{Binding ClearCacheCommand}" SnapsToDevicePixels="True" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{lex:LocText Operation}">
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <CheckBox Grid.Row="0" Grid.ColumnSpan="2" Content="{lex:LocText CheckForNewerVersionOnStartup}"
+                              Padding="5,0,0,0" IsChecked="{Binding UseVersionChecker}" Margin="0,0,0,5" />
+
+                    <CheckBox Grid.Row="1" Grid.ColumnSpan="2" Content="{lex:LocText DisableNotificationSound}"
+                              Padding="5,0,0,0" IsChecked="{Binding DisableNotificationSound}" Margin="0,0,0,5" />
+
+                    <CheckBox Grid.Row="2" Grid.ColumnSpan="2" Content="{lex:LocText DisableFsdStatusPolling}"
+                              Padding="5,0,0,0" IsChecked="{Binding DisableFsdStatusPolling}" Margin="0,0,0,5" />
+
+                    <CheckBox Grid.Row="3" Grid.ColumnSpan="2" Content="{lex:LocText VerifyFileHashAfterFtpUpload}"
+                              Padding="5,0,0,0" IsChecked="{Binding VerifyFileHashAfterFtpUpload}" Margin="0,0,0,5" />
+
+                    <Image Grid.Row="4" Source="/Resources/info.png" Margin="20,10,5,0" VerticalAlignment="Top" />
+                    <TextBlock Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Margin="0,10,0,10" Text="{lex:LocText VerifyFileHashAfterFtpUploadRemarks}" />
+
+                    <CheckBox Grid.Row="5" Grid.ColumnSpan="2" Content="{lex:LocText UseRemoteCopy}"
+                              Padding="5,0,0,0" IsChecked="{Binding UseRemoteCopy}" />
+
+                    <Image Grid.Row="6" Source="/Resources/info.png" Margin="20,10,5,0" VerticalAlignment="Top" />
+                    <TextBlock Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" Margin="0,10,0,10" Text="{lex:LocText UseRemoteCopyRemarks}" />
+
+                    <DockPanel Grid.Row="7" Grid.ColumnSpan="2">
+                        <ComboBox DockPanel.Dock="Right" ItemsSource="{Binding FsdContentScanTriggerOptions}"
+                                  SelectedItem="{Binding FsdContentScanTrigger}" VerticalAlignment="Center">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Converter={StaticResource LocalizedEnumConverter}}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBlock Text="{lex:Loc FsdContentScanTrigger}" VerticalAlignment="Center" />
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{lex:LocText Appearance}">
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="{lex:LocText Language, Suffix={x:Static constants:Strings.Asterisk}}" VerticalAlignment="Center" />
+                    <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding AvailableLanguages}"
+                              SelectedItem="{Binding Language}" VerticalAlignment="Center">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NativeName}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <CheckBox Grid.Row="1" Grid.ColumnSpan="2" Margin="0,10,0,0"
+                              Content="{lex:LocText DisableCustomWindowChrome, Suffix={x:Static constants:Strings.Asterisk}}"
+                              Padding="5,0,0,0" IsChecked="{Binding DisableCustomChrome}" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <TextBlock Text="{lex:LocText NeedsRestartToApplyChanges}"
+             Grid.Row="1" Margin="5,0,0,10" />
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="75" Content="{lex:LocText Ok}"
+                 Margin="5" Click="OkButtonClick" />
+            <Button Width="75" Content="{lex:LocText Cancel}"
+                 Margin="5" Click="CancelButtonClick" />
+        </StackPanel>
+
+
+        <e:Interaction.Triggers>
+        </e:Interaction.Triggers>
+        <Grid.InputBindings>
+        </Grid.InputBindings>
+    </Grid>
+</primitives:DialogBase>

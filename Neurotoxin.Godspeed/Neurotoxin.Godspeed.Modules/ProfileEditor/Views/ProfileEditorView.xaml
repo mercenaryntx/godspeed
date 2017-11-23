@@ -1,0 +1,144 @@
+﻿<inf:ModuleViewBase x:Class="Neurotoxin.Godspeed.Modules.ProfileEditor.Views.ProfileEditorView"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:e="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                    xmlns:inf="clr-namespace:Neurotoxin.Godspeed.Presentation.Infrastructure;assembly=Neurotoxin.Godspeed.Presentation"
+                    xmlns:co="clr-namespace:Neurotoxin.Godspeed.Presentation.Converters;assembly=Neurotoxin.Godspeed.Presentation"
+                    xmlns:c="clr-namespace:Neurotoxin.Godspeed.Presentation.Controls;assembly=Neurotoxin.Godspeed.Presentation"
+                    MinHeight="300">
+    <inf:ModuleViewBase.Resources>
+        <co:BoolToVisibilityConverter x:Key="BoolToVis"/>
+    </inf:ModuleViewBase.Resources>
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid Visibility="{Binding IsNotInProgress, Converter={StaticResource BoolToVis}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Title ID"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding TitleId}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="Console ID"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding ConsoleId}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="2" Text="Profile ID"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding ProfileId}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="3" Text="Device ID"/>
+            <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding DeviceId}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="Display Name"/>
+            <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding DisplayName}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="5" Text="Title Name"/>
+            <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding TitleName}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="6" Text="Gamerscore"/>
+            <Grid Grid.Column="1" Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding Gamerscore}"/>
+                <TextBlock Grid.Column="1" Text="{Binding CalculatedGamerscore}"/>
+                <TextBlock Grid.Column="2" Text="{Binding CalculatedGamerscore2}"/>
+            </Grid>
+            
+            <TextBlock Grid.Column="0" Grid.Row="7" Text="Thumbnail"/>
+            <StackPanel Grid.Column="1" Grid.Row="7" Orientation="Horizontal">
+                <Image Source="{Binding Thumbnail}"/>
+                <Image Source="{Binding TitleThumbnail}"/>
+                <Button Content="MERGE" Command="{Binding MergeCommand}"/>
+                <Button Content="SSS" Command="{Binding UnlockAchievementCommand}"/>
+                <Button Content="SAVE" Command="{Binding SaveCommand}"/>
+                <Button Content="EXTRACT" Command="{Binding ExtractCommand}"/>
+            </StackPanel>
+
+            <Grid Grid.Column="1" Grid.Row="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <TreeView ItemsSource="{Binding Tree}">
+                    <e:Interaction.Behaviors>
+                        <c:BindableSelectedItemBehavior SelectedItem="{Binding SelectedFile, Mode=TwoWay}" />
+                    </e:Interaction.Behaviors>
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
+                            <TextBlock Text="{Binding Path=Name}"/>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
+
+                <Button Grid.Row="1" Command="{Binding OpenInHexViewerCommand}" Content="Open in HexView"/>
+            </Grid>
+
+            <DataGrid Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2" ItemsSource="{Binding Achievements}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedAchievement}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Icon">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Path=Thumbnail}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding Path=State}" Header="State"/>
+                    <DataGridTextColumn Binding="{Binding Path=UnlockTime}" Header="UnlockTime"/>
+                    <DataGridTextColumn Binding="{Binding Path=AchievementId}" Header="ID"/>
+                    <DataGridTextColumn Binding="{Binding Path=Gamerscore}" Header="Gamerscore"/>
+                    <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name"/>
+                    <DataGridTextColumn Binding="{Binding Path=Description}" Header="Description"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Grid Grid.Column="2" Grid.Row="0" Grid.RowSpan="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <ListBox ItemsSource="{Binding Games}" SelectedItem="{Binding SelectedGame}" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="64"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Image Source="{Binding Thumbnail}" Grid.RowSpan="2"/>
+                                <TextBlock Text="{Binding Title}" Grid.Column="1"/>
+                                <TextBlock Text="{Binding TitleId}" Grid.Column="2"/>
+                                <TextBlock Text="{Binding Achievements}" Grid.Column="1" Grid.Row="1"/>
+                                <TextBlock Text="{Binding Gamerscore}" Grid.Column="2" Grid.Row="1"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <TextBox Grid.Row="1" Text="{Binding GamesFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</inf:ModuleViewBase>
