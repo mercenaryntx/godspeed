@@ -1,6 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neurotoxin.Godspeed.Shell", "Neurotoxin.Godspeed.Shell\Neurotoxin.Godspeed.Shell.csproj", "{B80F4FF9-D93B-474B-A86E-6B6EB70E92F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neurotoxin.Godspeed.Modules", "Neurotoxin.Godspeed.Modules\Neurotoxin.Godspeed.Modules.csproj", "{6288A19D-8EF5-4483-A616-D4F1B49A4F70}"
@@ -23,9 +26,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = Neurotoxin.Godspeed.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -105,4 +105,10 @@ Global
 		{BDC5A7D5-855B-4A9E-BF02-A918FB44A67C} = {EDEFA83C-86BB-42FF-AC81-1CB87B29CB74}
 		{B27485E2-5050-4BD3-9A16-104F37FB3072} = {EDEFA83C-86BB-42FF-AC81-1CB87B29CB74}
 	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61D446D5-F480-46C3-82A4-B2A1B8C4320C}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Neurotoxin.Godspeed.vsmdi
+	EndGlobalSection	
 EndGlobal
