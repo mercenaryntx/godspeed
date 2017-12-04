@@ -33,14 +33,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.Composite">
-      <HintPath>..\packages\Prism\Microsoft.Practices.Composite.dll</HintPath>
+      <HintPath>..\..\Libraries\Prism\Microsoft.Practices.Composite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Composite.Presentation, Version=2.0.1.0, Culture=neutral, PublicKeyToken=2a57e53aa571c045, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Prism\Microsoft.Practices.Composite.Presentation.dll</HintPath>
+      <HintPath>..\..\Libraries\Prism\Microsoft.Practices.Composite.Presentation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity">
-      <HintPath>..\packages\Prism\Microsoft.Practices.Unity.dll</HintPath>
+      <HintPath>..\..\Libraries\Prism\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -48,7 +48,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\System.Windows.Interactivity\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\..\Libraries\System.Windows.Interactivity\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />

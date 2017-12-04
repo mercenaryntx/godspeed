@@ -71,26 +71,26 @@
       <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net40-client\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Composite">
-      <HintPath>..\packages\Prism\Microsoft.Practices.Composite.dll</HintPath>
+      <HintPath>..\..\Libraries\Prism\Microsoft.Practices.Composite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Composite.Presentation">
-      <HintPath>..\packages\Prism\Microsoft.Practices.Composite.Presentation.dll</HintPath>
+      <HintPath>..\..\Libraries\Prism\Microsoft.Practices.Composite.Presentation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Composite.UnityExtensions">
-      <HintPath>..\packages\Prism\Microsoft.Practices.Composite.UnityExtensions.dll</HintPath>
+      <HintPath>..\..\Libraries\Prism\Microsoft.Practices.Composite.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity">
-      <HintPath>..\packages\Prism\Microsoft.Practices.Unity.dll</HintPath>
+      <HintPath>..\..\Libraries\Prism\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Windows.Shell">
-      <HintPath>..\packages\Microsoft.Windows.Shell\Microsoft.Windows.Shell.dll</HintPath>
+      <HintPath>..\..\Libraries\Microsoft.Windows.Shell\Microsoft.Windows.Shell.dll</HintPath>
     </Reference>
     <Reference Include="NAppUpdate.Framework, Version=0.3.2.0, Culture=neutral, PublicKeyToken=d1f1d1f19f9e5a56, processorArchitecture=MSIL">
       <HintPath>..\packages\NAppUpdate.Framework.0.3.2.0\lib\net20\NAppUpdate.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NAudio">
-      <HintPath>..\packages\SharpMik\NAudio.dll</HintPath>
+      <HintPath>..\..\Libraries\SharpMik\NAudio.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="ServiceStack.Common, Version=4.0.22.0, Culture=neutral, processorArchitecture=MSIL">
@@ -113,7 +113,7 @@
       <HintPath>..\packages\sharpcompress.0.10.3\lib\net40\SharpCompress.dll</HintPath>
     </Reference>
     <Reference Include="SharpMikNAudio">
-      <HintPath>..\packages\SharpMik\SharpMikNAudio.dll</HintPath>
+      <HintPath>..\..\Libraries\SharpMik\SharpMikNAudio.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -130,7 +130,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\System.Windows.Interactivity\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\..\Libraries\System.Windows.Interactivity\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -844,12 +844,6 @@
     <Resource Include="Resources\Sounds\credits.xm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <None Include="x64\SQLite.Interop.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="x86\SQLite.Interop.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\header.png" />
@@ -928,8 +922,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>copy $(SolutionDir)..\Libraries\Xcompress\*.* $(TargetDir) /Y
+xcopy $(SolutionDir)..\Libraries\SQLite.Interop\*.* $(TargetDir) /s /e /Y</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
